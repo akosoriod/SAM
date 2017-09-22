@@ -1,0 +1,406 @@
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:45:42 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 121ms (Views: 4.5ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-09-22 11:45:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:46:24 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 99ms (Views: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:46:41 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 6ms (Views: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:47:30 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 104ms (Views: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:48:50 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 102ms (Views: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-22 11:48:51 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/david/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 7ms (Views: 5.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 11:53:44 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 87ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 11:53:44 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 0ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 11:54:12 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 0ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:19:26 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 93ms
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - rsa.pem):
+  
+app/controllers/application_controller.rb:8:in `read'
+app/controllers/application_controller.rb:8:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:21:03 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 346ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:23:05 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 98ms
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - ~/go/src/arquitectura/sam_sessions_ms/rsa_keys/public.rsa.pub):
+  
+app/controllers/application_controller.rb:8:in `read'
+app/controllers/application_controller.rb:8:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:26:26 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 75ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:27:08 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 93ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:30:07 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 92ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:33:47 -0500
+  
+SyntaxError (/home/david/Arquitectura/sam/sam_api_gateway/app/controllers/application_controller.rb:8: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+ead 'rsa_keys/public.rsa.pub'}
+                              ^
+/home/david/Arquitectura/sam/sam_api_gateway/app/controllers/application_controller.rb:11: syntax error, unexpected tSTRING_DEND, expecting '}'
+rue, { :algorithm => 'RS256' }
+                              ^):
+  
+app/controllers/application_controller.rb:8: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+app/controllers/application_controller.rb:11: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/sessions_controller.rb:1:in `<top (required)>'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:34:20 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 151ms
+
+
+  
+NameError (undefined local variable or method `token' for #<SessionsController:0x0055f2c6c1f688>):
+  
+app/controllers/application_controller.rb:11:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:34:52 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 172ms
+
+
+  
+NameError (undefined local variable or method `error' for #<SessionsController:0x0055b9911793a0>):
+  
+app/controllers/application_controller.rb:14:in `rescue in require_token'
+app/controllers/application_controller.rb:11:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:35:25 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 95ms
+
+
+  
+NameError (uninitialized constant ApplicationController::EXPIRO):
+  
+app/controllers/application_controller.rb:14:in `rescue in require_token'
+app/controllers/application_controller.rb:11:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:35:36 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 75ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:39:58 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 96ms
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:17:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:40:57 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 77ms
+
+
+  
+JWT::ExpiredSignature (Signature has expired):
+  
+app/controllers/application_controller.rb:11:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:51:08 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 45ms
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/application_controller.rb:14:in `[]'
+app/controllers/application_controller.rb:14:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:52:15 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 550ms
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/application_controller.rb:15:in `[]'
+app/controllers/application_controller.rb:15:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:52:56 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 101ms
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/application_controller.rb:15:in `[]'
+app/controllers/application_controller.rb:15:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:53:19 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 97ms
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:15:in `[]'
+app/controllers/application_controller.rb:15:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:54:12 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 90ms
+
+
+  
+NoMethodError (undefined method `type' for #<Array:0x00561ac3c62d00>):
+  
+app/controllers/application_controller.rb:13:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:54:34 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 81ms
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:15:in `[]'
+app/controllers/application_controller.rb:15:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:56:06 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 76ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:58:41 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 114ms
+
+
+  
+NoMethodError (undefined method `[]' for #<Enumerator:0x0055d39f2a4978>):
+  
+app/controllers/application_controller.rb:15:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:58:59 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 101ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:59:15 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 1ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 12:59:20 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 102ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:03:41 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 96ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:04:15 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 96ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:08:03 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 88ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:08:05 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 0ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:08:19 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 0ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:08:23 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 0ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:08:39 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 74ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:11:09 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 73ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:11:25 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 1ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:11:57 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 500 Internal Server Error in 1ms (Views: 0.1ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:16:in `require_token'
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:13:08 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:13:10 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:13:15 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.3ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:13:18 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:13:19 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:14:03 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:14:05 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:14:12 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 90ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:14:16 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:15:04 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:15:05 -0500
+Processing by SessionsController#refresh_token as */*
+Filter chain halted as :require_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:15:32 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 1ms
+
+
+Started GET "/refresh/profile" for 127.0.0.1 at 2017-09-22 13:17:20 -0500
+Processing by SessionsController#refresh_token as */*
+Completed 204 No Content in 102ms
+
+
