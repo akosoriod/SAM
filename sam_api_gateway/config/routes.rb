@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  get 'refresh/profile', to: 'sessions#refresh_token'
+
+  get 'refreshtoken', to: 'sessions#refresh_token'
+  post 'users/login', to: 'sessions#login'
+
 end

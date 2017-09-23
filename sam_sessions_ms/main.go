@@ -28,7 +28,7 @@ func main() {
 
 func initDb() {
 	var err error
-	database.DB, err = gorm.Open("mysql", "arqsoft:123@tcp(192.168.99.101:8814)/sessions?charset=utf8&parseTime=True&loc=Local")
+	database.DB, err = gorm.Open("mysql", "arqsoft:123@tcp(192.168.99.102:8814)/sessions?charset=utf8&parseTime=True&loc=Local")
 	//database.DB, err = gorm.Open("mysql", "root:root@tcp(localhost:3306)/sam_session_db?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		log.Println(err)

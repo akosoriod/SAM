@@ -1,24 +1,41 @@
 class ApplicationController < ActionController::API
 
-   before_action :require_token
+   before_action :validate_token
 
-   protected
+   private
 
-   def require_token
-    rsa_public = OpenSSL::PKey::RSA.new File.read 'rsa_keys/public.rsa.pub'
-
-    token = request.headers['AUTHORIZATION']
+   def validate_token
     begin
-      decoded_token = JWT.decode token, rsa_public, true, { :algorithm => 'RS256' }
+      decoded_token = JWT.decode request.headers['AUTHORIZATION'], ::RSAPublic, true, { :algorithm => 'RS256' }
     rescue Exception
       render status: 401
       return 1
     end
-    render status: 401 if decoded_token[0]["typ"] != "Authorization"
+    if decoded_token[0]["typ"] != "Authorization"
+      render status: 401
+    else
+      @username = decoded_token[0]["sub"]
+    end
   end
 
-  def get_host
-    "192.168.0.102"
+
+  def ms_ip(ms)
+    host = "http://192.168.99.102:"
+    case ms
+    when "sm" #send mail
+      host += "3001"
+    when "in" #Inbox
+      host += "3002"
+    when "nt" #Notifications
+      host += "3003"
+    when "rg" #Register
+      host += "3004"
+    when "ss" #Sessions
+      host += "3005"
+    when "schs" # programacion 
+      host += "3006"
+    end
+    return host
   end
 
 end
