@@ -4,7 +4,7 @@ class MailController < ApplicationController
   def sendMail
     mail = {
       body: {
-        :sender => params[:sender],
+        :sender => @usuario,
         :recipient => params[:recipient],
         :distribution_list => params[:distribution_list],
         :subject => params[:subject],
