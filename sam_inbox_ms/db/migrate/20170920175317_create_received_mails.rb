@@ -9,7 +9,6 @@ class CreateReceivedMails < ActiveRecord::Migration[5.1]
       t.string :Message_body
       t.string :Attachments
       t.datetime :Sent_dateTime
-      t.datetime :Created_dateTime
       t.boolean :Read
       t.boolean :Urgent
 
