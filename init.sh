@@ -5,7 +5,7 @@ docker-machine start rancher-node2
 sleep 2
 eval $(docker-machine env rancher-node2)
 cd sam_api_gateway
-# docker-compose up -d
+docker-compose up -d
 cd ../sam_sessions_ms
 docker-compose up -d
 cd ../sam_register_ms
