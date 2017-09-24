@@ -20,13 +20,32 @@ class MailController < ApplicationController
         'Content-Type' => 'application/json'
       }
     }
+
+    mail2 = {
+      body: {
+        :Sender => @usuario,
+        :Recipient => params[:recipient],
+        :Cc => params[:cc],
+        :Distribution_list => params[:distribution_list],
+        :Subject => params[:subject],
+        :Message_body => params[:message_body],
+        :Attachments => params[:attachment],
+        :Sent_dateTime => params[:sent_dateTime],
+        :Urgent => params[:urgent],
+        :Read => false
+      }.to_json,
+      :headers => {
+        'Content-Type' => 'application/json'
+      }
+    }
+
     @sentMail = HTTParty.post(ms_ip("sm")+"/sent_mails",mail)
     if @sentMail.code == 201
       render status: 201, json: @sentMail
 
       #TO_DO Si el mensaje se envía (NO ES BORRADOR) se guarda en la base de inbox de usuario que recibe
       unless params[:draft]
-        #Make Inbox Mail
+        @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
       end
 
       # TO_DO Si el mensaje se le pone una fecha de envío se programa su envío
@@ -154,6 +173,87 @@ class MailController < ApplicationController
   def checkSentMail(id)
     results = HTTParty.get(ms_ip("sm")+"/sent_mails/"+id.to_s)
     return results
+  end
+
+##############################################################################
+
+  def delReceivedMail
+    @result = HTTParty.delete(ms_ip("in")+"received_mails"+params[:id].to_s)
+    if @result.code == 200
+      render status: 200, json: {body:{message: "Mail deleted"}}.to_json
+    else
+      render status: 404, json: {body:{message: "Mail couldn't be deleted"}}.to_json
+    end
+  end
+
+  def received_mails
+    @result = get_received_mails
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Reeceived Mails not found"}}.to_json
+    end
+  end
+
+  def received_mail
+    @result = get_received_mail(params[:id])
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Mail not found"}}.to_json
+    end
+  end
+
+  def bySender
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/sender/"+params[:sender])
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Not mails from "+params[:sender]+" found"}}.to_json
+    end
+  end
+
+  def read
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/read")
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Not read mails found"}}.to_json
+    end
+  end
+
+  def unread
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/unread/")
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Not unread mails found"}}.to_json
+    end
+  end
+
+  def urgent
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/urgent/")
+    if @result.code == 200
+      render status: 200, json: @result.body
+    else
+      render status: 404, json: {body:{message: "Not urgent mails found"}}.to_json
+    end
+  end
+
+  def not_urgent
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/not_urgent/")
+    render status: 200, json: @result.body
+  end
+
+  def get_received_mails
+    @response = HTTParty.get(ms_ip("in")+"/inbox/user/"+@usuario)
+    #render json: @response.body
+    return @response
+  end
+
+  def get_received_mail(id)
+    @response = HTTParty.get(ms_ip("in")+"/received_mails"+id.to_s)
+    return @response
   end
 
 end
