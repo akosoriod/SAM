@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
 
 
   def ms_ip(ms)
-    host = "http://192.168.99.102:"
+    host = "http://192.168.99.101:"
     case ms
     when "sm" #send mail
       host += "3001"
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
       host += "3004"
     when "ss" #Sessions
       host += "3005"
-    when "schs" # programacion 
+    when "schs" # programacion
       host += "3006"
     end
     return host

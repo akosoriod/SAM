@@ -1,7 +1,7 @@
 require 'digest'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :set_user_username, only: :login
+  before_action :set_user_username, only: [:login]
 
   # GET /users
   def index
@@ -39,7 +39,9 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    render status: 404 if @user.blank?
     @user.destroy
+    render status: 200
   end
 
   def login
@@ -61,7 +63,7 @@ class UsersController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by_username(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
