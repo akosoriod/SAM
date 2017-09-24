@@ -1,6 +1,11 @@
 class ReceivedMailsController < ApplicationController
   before_action :set_received_mail, only: [:show, :update, :destroy]
 
+  def getbyuser
+    @received_mails = ReceivedMail.where(Recipient: params[:recipient])
+    render json: @received_mails
+  end
+
   # GET /received_mails
   def index
     @received_mails = ReceivedMail.all
@@ -40,7 +45,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/sender/nombre
   def by_sender
-    @received_mails = ReceivedMail.where(Sender: params[:sender])
+    @received_mails = ReceivedMail.where(Sender: params[:sender], Recipient: params[:recipient])
     if @received_mails.blank?
       #render plain: "Not mails from " + params[:sender].to_s + " found", status: 404
       render json: {message: "Not mails from " + params[:sender].to_s + " found", status: 404}, status:404
@@ -51,25 +56,37 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/read
   def read
-    @received_mails = ReceivedMail.where(Read: true)
+    @received_mails = ReceivedMail.where(Read: true, Recipient: params[:recipient])
+    if @received_mails.blank?
+      render json: {message: "Not read mails found", status: 404}, status:404
+      return 1
+    end
     render json: @received_mails
   end
 
   # GET /inbox/unread
   def unread
-    @received_mails = ReceivedMail.where(Read: false)
+    @received_mails = ReceivedMail.where(Read: false, Recipient: params[:recipient])
+    if @received_mails.blank?
+      render json: {message: "Not unread mails found", status: 404}, status:404
+      return 1
+    end
     render json: @received_mails
   end
 
   # GET /inbox/urgent
   def urgent
-    @received_mails = ReceivedMail.where(Urgent: true)
+    @received_mails = ReceivedMail.where(Urgent: true, Recipient: params[:recipient])
+    if @received_mails.blank?
+      render json: {message: "Not urgent mails found", status: 404}, status:404
+      return 1
+    end
     render json: @received_mails
   end
 
   # GET /inbox/not_urgent
   def not_urgent
-    @received_mails = ReceivedMail.where(Urgent: false)
+    @received_mails = ReceivedMail.where(Urgent: false, Recipient: params[:recipient])
     render json: @received_mails
   end
 
