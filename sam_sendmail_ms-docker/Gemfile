@@ -46,3 +46,6 @@ gem 'execjs'
 #Carrierwave
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
+
+#File size validator
+gem 'file_validators'
