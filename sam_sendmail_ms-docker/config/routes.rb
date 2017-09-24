@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   resources :sent_mails
 
   #filtered
-  get 'dafts', to: 'sent_mails#dafts'
-  get 'dafts/:id', to: 'sent_mails#dafts'
-  delete 'dafts/:id', to: 'sent_mails#delDaft'
+  get 'drafts', to: 'sent_mails#drafts'
+  get 'drafts/:id', to: 'sent_mails#drafts'
+  put 'drafts/:id', to: 'sent_mails#modifyDraft'
+  delete 'drafts/:id', to: 'sent_mails#delDraft'
   get 'senturgent', to: 'sent_mails#urgent'
   get 'senturgent/:id', to: 'sent_mails#urgent'
   delete 'senturgent/:id', to: 'sent_mails#destroy'
-  get 'daftsurgent', to: 'sent_mails#daftAndUrgent'
-  get 'daftsurgent/:id', to: 'sent_mails#daftAndUrgent'
-  delete 'daftsurgent/:id', to: 'sent_mails#delDaft'
+  get 'draftsurgent', to: 'sent_mails#draftAndUrgent'
+  get 'draftsurgent/:id', to: 'sent_mails#draftAndUrgent'
+  delete 'draftsurgent/:id', to: 'sent_mails#delDraft'
 
 end

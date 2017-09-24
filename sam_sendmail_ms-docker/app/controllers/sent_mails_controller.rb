@@ -4,7 +4,7 @@ class SentMailsController < ApplicationController
   # GET /sent_mails
   def index
     @sent_mails = SentMail.sent
-    render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :daft, :urgent, :confirmation, :created_at ])
+    render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
   end
 
   # GET /sent_mails/1
@@ -40,30 +40,51 @@ class SentMailsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /drafts/1
+  def modifyDraft
+    @update_mail=SentMail.drafts.find(params[:id])
+    if @update_mail.update_attributes(recipient: params[:recipient],
+      cc: params[:cc],
+      distribution_list: params[:distribution_list],
+      subject: params[:subject],
+      message_body: params[:message_body],
+      attachment: params[:attachment],
+      sent_dateTime: params[:sent_dateTime],
+      urgent: params[:urgent],
+      draft: params[:draft],
+      confirmation: params[:confirmation])
+      
+      render json: @update_mail
+    else
+      render json: @update_mail.errors, status: :unprocessable_entity
+    end
+  end
+
+
   # DELETE /sent_mails/1
   def destroy
     SentMail.sent.find(params[:id]).destroy
     render status: 200
   end
 
-  # DELETE /dafts/1
-  def delDaft
-    SentMail.dafts.find(params[:id]).destroy
+  # DELETE /drafts/1
+  def delDraft
+    SentMail.drafts.find(params[:id]).destroy
     render status: 200
   end
 
-  #dafts
-  def dafts
+  #drafts
+  def drafts
     if params[:id] != nil
-      @daft = SentMail.daftsId(params[:id])
-      if SentMail.daftsId(params[:id]).length == 0
+      @draft = SentMail.draftsId(params[:id])
+      if SentMail.draftsId(params[:id]).length == 0
         render status: 404
       else
-        render json: @daft
+        render json: @draft
       end
     else
-      @sent_mails = SentMail.dafts
-      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :daft, :urgent, :confirmation, :created_at ])
+      @sent_mails = SentMail.drafts
+      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
     end
 
   end
@@ -79,23 +100,23 @@ class SentMailsController < ApplicationController
       end
     else
       @sent_mails = SentMail.urgent
-      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :daft, :urgent, :confirmation, :created_at ])
+      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
     end
 
   end
 
-  #dafts and urgents
-  def daftAndUrgent
+  #drafts and urgents
+  def draftAndUrgent
     if params[:id] != nil
-      @daftUrgent = SentMail.daftAndUrgentId(params[:id])
-      if SentMail.daftAndUrgentId(params[:id]).length == 0
+      @draftUrgent = SentMail.draftAndUrgentId(params[:id])
+      if SentMail.draftAndUrgentId(params[:id]).length == 0
         render status: 404
       else
-        render json: @daftUrgent
+        render json: @draftUrgent
       end
     else
-      @sent_mails = SentMail.daftAndUrgent
-      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :daft, :urgent, :confirmation, :created_at ])
+      @sent_mails = SentMail.draftAndUrgent
+      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
     end
 
   end
@@ -109,7 +130,6 @@ class SentMailsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def sent_mail_params
-    params.require(:sent_mail).permit(:sender, :recipient, :cc, :distribution_list, :subject, :message_body, :attachment, :sent_dateTime, :daft, :urgent, :confirmation)
+    params.require(:sent_mail).permit(:sender, :recipient, :cc, :distribution_list, :subject, :message_body, :attachment, :sent_dateTime, :draft, :urgent, :confirmation)
   end
-
 end

@@ -9,7 +9,7 @@ class CreateSentMails < ActiveRecord::Migration[5.1]
       t.text :message_body
       t.string :attachment
       t.datetime :sent_dateTime
-      t.boolean :daft
+      t.boolean :draft
       t.boolean :urgent
       t.boolean :confirmation
 

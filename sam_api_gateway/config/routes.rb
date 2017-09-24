@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   delete 'sentmails/:id', to: 'mail#delSent'
   post 'sendmail', to: 'mail#sendMail'
   #filtered
-  get 'dafts', to: 'mail#dafts'
-  get 'dafts/:id', to: 'mail#dafts'
-  delete 'dafts/:id', to: 'mail#delDaft'
+  get 'drafts', to: 'mail#drafts'
+  get 'drafts/:id', to: 'mail#drafts'
+  put 'drafts/:id', to: 'mail#modifyDraft'
+  delete 'drafts/:id', to: 'mail#delDraft'
   get 'senturgent', to: 'mail#urgent'
   get 'senturgent/:id', to: 'mail#urgent'
   delete 'senturgent/:id', to: 'mail#delSent'
-  get 'daftsurgent', to: 'mail#daftAndUrgent'
-  get 'daftsurgent/:id', to: 'mail#daftAndUrgent'
-  delete 'daftsurgent/:id', to: 'mail#delDaft'
-
+  get 'draftsurgent', to: 'mail#draftAndUrgent'
+  get 'draftsurgent/:id', to: 'mail#draftAndUrgent'
+  delete 'draftsurgent/:id', to: 'mail#delDraft'
 
 end

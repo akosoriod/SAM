@@ -6,35 +6,35 @@ class SentMail < ApplicationRecord
   validates :attachment, file_size: { less_than_or_equal_to: 20.megabytes  }
 
 	def self.sent
-		where(daft: false)
+		where(draft: false)
 	end
 
-	def self.dafts
-		where(daft: true)
+	def self.drafts
+		where(draft: true)
 	end
 
 	def self.urgent
-		where(daft: false,urgent: true)
+		where(draft: false,urgent: true)
 	end
 
-	def self.daftAndUrgent
-		where(daft: true, urgent: true)
+	def self.draftAndUrgent
+		where(draft: true, urgent: true)
 	end
 
 	def self.sentId(id)
 		sent.where(id: id)
 	end
 
-	def self.daftsId(id)
-		dafts.where(id: id)
+	def self.draftsId(id)
+		drafts.where(id: id)
 	end
 
 	def self.urgentId(id)
 		urgent.where(id: id)
 	end
 
-	def self.daftAndUrgentId(id)
-		daftAndUrgent.where(id: id)
+	def self.draftAndUrgentId(id)
+		draftAndUrgent.where(id: id)
 	end
 
 end

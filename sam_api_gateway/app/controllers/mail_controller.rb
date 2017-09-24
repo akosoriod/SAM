@@ -12,7 +12,7 @@ class MailController < ApplicationController
         :attachment => params[:attachment],
         :cc => params[:cc],
         :sent_dateTime => params[:sent_dateTime],
-        :daft => params[:daft],
+        :draft => params[:draft],
         :urgent => params[:urgent],
         :confirmation => params[:confirmation]
       }.to_json,
@@ -25,7 +25,7 @@ class MailController < ApplicationController
       render status: 201, json: @sentMail
 
       #TO_DO Si el mensaje se envía (NO ES BORRADOR) se guarda en la base de inbox de usuario que recibe
-      unless params[:dafts]
+      unless params[:draft]
         #Make Inbox Mail
       end
 
@@ -60,17 +60,17 @@ class MailController < ApplicationController
     end
   end
 
-  # GET /sent_mails/dafts - dafts
-  def dafts
+  # GET /sent_mails/drafts - drafts
+  def drafts
     if params[:id] != nil
-      @sentMails = HTTParty.get(ms_ip("sm")+"/dafts/"+params[:id].to_s)
+      @sentMails = HTTParty.get(ms_ip("sm")+"/drafts/"+params[:id].to_s)
     else
-      @sentMails = HTTParty.get(ms_ip("sm")+"/dafts")
+      @sentMails = HTTParty.get(ms_ip("sm")+"/drafts")
     end
     if @sentMails.code == 200
       render status: 200, json: @sentMails.body
     else
-      render status: 404, json: {body:{message: "Dafts not found"}}.to_json
+      render status: 404, json: {body:{message: "Drafts not found"}}.to_json
     end
   end
 
@@ -88,20 +88,44 @@ class MailController < ApplicationController
     end
   end
 
-  # GET /sent_mails/daftAndUrgent - daftsurgent
-  def daftAndUrgent
+  # GET /sent_mails/draftAndUrgent - draftsurgent
+  def draftAndUrgent
     if params[:id] != nil
-      @sentMails = HTTParty.get(ms_ip("sm")+"/daftsurgent/"+params[:id].to_s)
+      @sentMails = HTTParty.get(ms_ip("sm")+"/draftsurgent/"+params[:id].to_s)
     else
-      @sentMails = HTTParty.get(ms_ip("sm")+"/daftsurgent")
+      @sentMails = HTTParty.get(ms_ip("sm")+"/draftsurgent")
     end
     if @sentMails.code == 200
       render status: 200, json: @sentMails.body
     else
-      render status: 404, json: {body:{message: "Urgent dafts not found"}}.to_json
+      render status: 404, json: {body:{message: "Urgent drafts not found"}}.to_json
     end
   end
 
+#PUT
+  def modifyDraft
+    data={
+        recipient: params[:recipient],
+        cc: params[:cc],
+        distribution_list: params[:distribution_list],
+        subject: params[:subject],
+        message_body: params[:message_body],
+        attachment: params[:attachment],
+        sent_dateTime: params[:sent_dateTime],
+        urgent: params[:urgent],
+        draft: params[:draft],
+        confirmation: params[:confirmation]
+    }
+    @modifyDraft = HTTParty.put(ms_ip("sm")+"/drafts/"+params[:id].to_s,:body=>data.to_json,
+     :headers => { "Content-Type" => 'application/json'})
+    if @modifyDraft.code == 200
+      render status: 200, json: @modifyDraft.body
+    else
+      render status: 404, json: {body:{message: "Draft wasn't modify"}}.to_json
+    end
+  end
+
+# DELETE
   def delSent
     @resp = HTTParty.delete(ms_ip("sm")+"/sent_mails/"+params[:id].to_s)
     if @resp.code == 200
@@ -111,12 +135,13 @@ class MailController < ApplicationController
     end
   end
 
-  def delDaft
-    @resp = HTTParty.delete(ms_ip("sm")+"/dafts/"+params[:id].to_s)
+#DELETE
+  def delDraft
+    @resp = HTTParty.delete(ms_ip("sm")+"/drafts/"+params[:id].to_s)
     if @resp.code == 200
-      render status: 200, json: {body:{message: "Daft deleted"}}.to_json
+      render status: 200, json: {body:{message: "Draft deleted"}}.to_json
     else
-      render status: 404, json: {body:{message: "Daft couldn't be deleted"}}.to_json
+      render status: 404, json: {body:{message: "Draft couldn't be deleted"}}.to_json
     end
   end
 
