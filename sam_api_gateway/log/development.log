@@ -840,3 +840,519 @@ Processing by SessionsController#login as */*
 Completed 200 OK in 392ms (Views: 0.1ms)
 
 
+Started POST "/users/login" for 127.0.0.1 at 2017-09-24 12:29:41 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"davsanba", "password"=>"[FILTERED]", "session"=>{"username"=>"davsanba", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 921ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.102:3005 (Connection refused - connect(2) for "192.168.99.102" port 3005)):
+  
+app/controllers/sessions_controller.rb:12:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2017-09-24 12:29:45 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"davsanba", "password"=>"[FILTERED]", "session"=>{"username"=>"davsanba", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 17ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.102:3005 (Connection refused - connect(2) for "192.168.99.102" port 3005)):
+  
+app/controllers/sessions_controller.rb:12:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2017-09-24 12:30:01 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"davsanba", "password"=>"[FILTERED]", "session"=>{"username"=>"davsanba", "password"=>"[FILTERED]"}}
+Completed 200 OK in 131ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:30:53 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 58ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:33:45 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 588ms (Views: 0.3ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:34:36 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 40ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:34:45 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 163ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:39:27 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 119ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:42:11 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 200 OK in 133ms (Views: 0.4ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:42:46 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 400 Bad Request in 34ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:44:37 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:10: syntax error, unexpected modifier_if, expecting '}'
+    gender: params[:gender] if params[:gender], 
+                              ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:11: syntax error, unexpected tLABEL, expecting '='
+          dateBirth: params[:date_birth],
+                    ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:12: syntax error, unexpected tLABEL, expecting '='
+          mobilePhone: params[:mobile_phone],
+                      ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:13: syntax error, unexpected tLABEL, expecting '='
+          currentEmail: params[:current_email], locat
+                       ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:13: syntax error, unexpected tLABEL, expecting '='
+ams[:current_email], location: params[:location]
+                              ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:14: syntax error, unexpected '}', expecting keyword_end
+      }
+       ^):
+  
+app/controllers/users_controller.rb:10: syntax error, unexpected modifier_if, expecting '}'
+app/controllers/users_controller.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:14: syntax error, unexpected '}', expecting keyword_end
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:46:34 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 3094ms
+
+
+  
+Errno::EHOSTUNREACH (Failed to open TCP connection to 192.168.99.102:3004 (No route to host - connect(2) for "192.168.99.102" port 3004)):
+  
+app/controllers/users_controller.rb:15:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:46:51 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 3078ms
+
+
+  
+Errno::EHOSTUNREACH (Failed to open TCP connection to 192.168.99.102:3004 (No route to host - connect(2) for "192.168.99.102" port 3004)):
+  
+app/controllers/users_controller.rb:15:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:47:04 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 3054ms
+
+
+  
+Errno::EHOSTUNREACH (Failed to open TCP connection to 192.168.99.102:3004 (No route to host - connect(2) for "192.168.99.102" port 3004)):
+  
+app/controllers/users_controller.rb:15:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:47:42 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 3182ms
+
+
+  
+Errno::EHOSTUNREACH (Failed to open TCP connection to 192.168.99.102:3004 (No route to host - connect(2) for "192.168.99.102" port 3004)):
+  
+app/controllers/users_controller.rb:15:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:49:33 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 400 Bad Request in 122ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 12:52:18 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 167ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:08:18 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 118ms
+
+
+  
+NoMethodError (undefined method `map' for #<ActionController::Parameters:0x0055685f0dc2b8>
+Did you mean?  tap):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:09:42 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "dateBirth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 99ms
+
+
+  
+NoMethodError (undefined method `map' for #<ActionController::Parameters:0x0055b3772bf568>
+Did you mean?  tap):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:10:58 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 96ms
+
+
+  
+NoMethodError (undefined method `map' for #<ActionController::Parameters:0x0056464cfd5b90>
+Did you mean?  tap):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:12:03 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:68: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/users_controller.rb:68: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:12:17 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 92ms
+
+
+  
+NoMethodError (undefined method `map' for #<ActionController::Parameters:0x0055fc637c80c0>
+Did you mean?  tap):
+  
+app/controllers/users_controller.rb:15:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:12:40 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 99ms
+
+
+  
+NoMethodError (undefined method `type' for #<ActionController::Parameters:0x005655286995a0>):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:12:53 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 93ms
+
+
+  
+NoMethodError (undefined method `map' for #<ActionController::Parameters:0x0055853a4c8140>
+Did you mean?  tap):
+  
+app/controllers/users_controller.rb:10:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:13:48 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 94ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:20:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:15:56 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 98ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:7:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:17:51 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 82ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:21:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:18:49 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 176ms
+
+
+  
+NameError (undefined local variable or method `value' for #<UsersController:0x00559e1e91dbf8>):
+  
+app/controllers/users_controller.rb:9:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:19:06 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 88ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:21:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:19:12 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 1ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:21:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:21:23 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 92ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:20:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:25:12 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 100ms
+
+
+  
+NoMethodError (undefined method `deep_transform_keys!' for #<ActionController::Parameters:0x0055be89d4dd28>):
+  
+app/controllers/users_controller.rb:7:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:27:12 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 100ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:7:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:29:46 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 75ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:29:58 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 168ms
+
+
+  
+NameError (undefined local variable or method `safe_params' for #<UsersController:0x00561a5cef85e0>):
+  
+app/controllers/users_controller.rb:8:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:30:17 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 76ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:20:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:30:58 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 95ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:20:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:32:38 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 87ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:21:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:33:43 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 73ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:22:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:33:56 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 78ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:22:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:34:34 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 75ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:22:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:36:35 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 80ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:23:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:37:45 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 86ms
+
+
+  
+ActionController::UnfilteredParameters (unable to convert unpermitted parameters to hash):
+  
+app/controllers/users_controller.rb:23:in `create_user'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:38:08 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 106ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:38:36 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 138ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:39:29 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 400 Bad Request in 172ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:39:48 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 164ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:42:00 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting =>
+("rg")+"/users", body: {value, user: value})
+                              ^):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting =>
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:43:51 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting =>
+("rg")+"/users", body: {value, {user: value}})
+                              ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting keyword_end
+, body: {value, {user: value}})
+                              ^):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting keyword_end
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:44:20 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 400 Bad Request in 108ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:46:34 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting =>
+("rg")+"/users", body: {value})
+                              ^):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting =>
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:46:53 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting =>
+/users", body: {value.to_json})
+                              ^):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting =>
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:47:02 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 400 Bad Request in 100ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:48:33 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 400 Bad Request in 132ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:49:17 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 500 Internal Server Error in 129ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:49:42 -0500
+  
+SyntaxError (/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting ')'
+ty.post(ms_ip("rg")+"/users",, body: value, query:{user:valu
+                              ^
+/home/david/Arquitectura/SAM/sam_api_gateway/app/controllers/users_controller.rb:23: syntax error, unexpected ')', expecting keyword_end
+dy: value, query:{user:value})
+                              ^):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected ',', expecting ')'
+app/controllers/users_controller.rb:23: syntax error, unexpected ')', expecting keyword_end
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:49:56 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 422 Unprocessable Entity in 135ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:50:30 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbwqfa", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbwqfa", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 201 Created in 48ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-24 13:53:36 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbwqfa", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbwqfa", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 422 Unprocessable Entity in 25ms (Views: 0.1ms)
+
+
