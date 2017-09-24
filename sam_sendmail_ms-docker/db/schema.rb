@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170920143620) do
     t.string "cc"
     t.string "distribution_list"
     t.string "subject"
-    t.string "message_body"
+    t.text "message_body"
     t.string "attachment"
     t.datetime "sent_dateTime"
     t.boolean "daft"

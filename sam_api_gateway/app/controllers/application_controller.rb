@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
       host += "3004"
     when "ss" #Sessions
       host += "3005"
-    when "schs" # programacion 
+    when "schs" # programacion
       host += "3006"
     end
     return host
