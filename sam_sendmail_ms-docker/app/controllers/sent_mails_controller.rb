@@ -53,7 +53,7 @@ class SentMailsController < ApplicationController
       urgent: params[:urgent],
       draft: params[:draft],
       confirmation: params[:confirmation])
-      
+
       render json: @update_mail
     else
       render json: @update_mail.errors, status: :unprocessable_entity
