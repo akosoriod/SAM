@@ -58,6 +58,7 @@ class MailController < ApplicationController
           }})
       end
 
+
       # TO_DO Si el mensaje se le pone una fecha de envío se programa su envío
       # Si no se pone fecha de envío se envía de una vez y no es borrador
       if params[:sent_dateTime] != DateTime.now and params[:sent_dateTime] != ""
