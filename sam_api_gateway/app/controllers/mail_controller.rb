@@ -50,12 +50,32 @@ class MailController < ApplicationController
       else
         #TO_DO Si el mensaje se envía (NO ES BORRADOR) se guarda en la base de inbox de usuario que recibe
         unless params[:draft]
-        #  @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
+         @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
         end
       end
 
     else
       render json: {messsage: "Error, mail couldn't be sent or saved"}
+    end
+  end
+
+# PUT /drafts/1  - send_daft
+  def send_drafts
+  draft={draft:false}.to_json
+    @sent_draft = HTTParty.put(ms_ip("sm")+"/sentdraft/"+params[:id].to_s,:body=>draft,
+     :headers => { "Content-Type" => 'application/json'})
+    if @sent_draft.code == 200
+
+      mail_draft=JSON.parse(@sent_draft.body)
+      mail_draft["Read"]=false
+      mail_draft.delete("draft")
+      mail_draft.delete("created_at")
+      mail_draft.delete("updated_at")
+      receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail_draft)
+
+      render status: 200, json: @sent_draft.body
+    else
+      render status: 404, json: {body:{message: "Draft wasn't modify"}}.to_json
     end
   end
 
