@@ -42,6 +42,10 @@ const HOST = '0.0.0.0';
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
+
+//-------- controller -----------------------------------------
+
+
 app.get('/', function (req, res){
     couch.get(dbName, viewUrl).then(
       function(data, headers, status){
@@ -62,14 +66,16 @@ app.get('/scheduledsending/all', function (req, res){
       res.send(err);
     });
 });
+
 app.post('/scheduledsending/add', function (req, res){
     const user_id = req.body.user_id;
     const mail_id = req.body.mail_id;
-    const year = req.body.date.year;
-    const month = req.body.date.month;
-    const day = req.body.date.day;
-    const hour = req.body.date.hour;
-    const minutes = req.body.date.minutes;
+    const date = objDate(req.body.date);
+    const year = date.year;
+    const month = date.month;
+    const day = date.day;
+    const hour = date.hour;
+    const minutes = date.minutes;
     couch.uniqid().then(function(ids){
       const id = ids[0];
       couch.insert('scheduledsending',{
@@ -101,14 +107,14 @@ app.put('/scheduledsending/update', function (req, res){
     const rev = 0;
     const user_id = req.body.user_id;
     const mail_id = req.body.mail_id;
-    const year = req.body.date.year;
-    const month = req.body.date.month;
-    const day = req.body.date.day;
-    const hour = req.body.date.hour;
-    const minutes = req.body.date.minutes;
+    const date = objDate(req.body.date);
+    const year = date.year;
+    const month = date.month;
+    const day = date.day;
+    const hour = date.hour;
+    const minutes = date.minutes;
     for (i=0;i<data.length;i++){
       if(user_id==data[i].value.user_id && mail_id==data[i].value.mail_id){
-        //console.log(data[i].);
         couch.update('scheduledsending',{
             _id:data[i].id,
             _rev:data[i].value.rev,
@@ -159,21 +165,31 @@ app.delete('/scheduledsending/delete',function(req,res){
   });
 });
 
-/*
+function objDate(date){
+  return {
+    year:date.substring(0, 4),
+    month:date.substring(5, 7),
+    day:date.substring(8, 10),
+    hour:date.substring(11, 13),
+    minutes:date.substring(14, 16),
+  }
+}
+
 
 function intervalFunc() {
   couch.get(dbName, viewUrl).then(
         function(data, headers, status){
           var data=data.data.rows;
-          var now = new Date
+          var now = new Date()
           for (i=0;i<data.length;i++){
              if (data[i].value.date.year==now.getFullYear()){
                if (data[i].value.date.month==now.getMonth()+1){
                  if (data[i].value.date.day==now.getDate()){
-                   if (data[i].value.date.hour==now.getHours()){
+                   if (data[i].value.date.hour==now.getHours()-5){
                      if (data[i].value.date.minutes==now.getMinutes()){
                          couch.del(dbName, data[i].id,data[i].value.rev).then(
                            function(data, headers, status){
+                             console.log("El correo del usuario "+data[i].value.user_id+" con id "+data[i].value.mail_id+" se ha enviado")
                            },
                            function(err){
                              res.send(err);
@@ -190,4 +206,3 @@ function intervalFunc() {
 
 
 setInterval(intervalFunc, 1500);
-*/

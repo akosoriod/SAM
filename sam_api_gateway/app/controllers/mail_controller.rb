@@ -2,9 +2,10 @@ class MailController < ApplicationController
 
   # POST /sent_mails  - sendMail
   def sendMail
+      puts @username
     mail = {
       body: {
-        :sender => @usuario,
+        :sender => @username,
         :recipient => params[:recipient],
         :distribution_list => params[:distribution_list],
         :subject => params[:subject],
@@ -23,7 +24,7 @@ class MailController < ApplicationController
 
     mail2 = {
       body: {
-        :Sender => @usuario,
+        :Sender => @username,
         :Recipient => params[:recipient],
         :Cc => params[:cc],
         :Distribution_list => params[:distribution_list],
@@ -39,6 +40,8 @@ class MailController < ApplicationController
       }
     }
 
+
+
     @sentMail = HTTParty.post(ms_ip("sm")+"/sent_mails",mail)
     if @sentMail.code == 201
       render status: 201, json: @sentMail
@@ -46,12 +49,29 @@ class MailController < ApplicationController
       #TO_DO Si el mensaje se envía (NO ES BORRADOR) se guarda en la base de inbox de usuario que recibe
       unless params[:draft]
         @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
+
+        @sendnotification = HTTParty.post(ms_ip("nt")+"/notifications", { body: {
+          :username => params[:recipient],
+          :sender => @username
+          }.to_json,:headers => {
+            'Content-Type' => 'application/json'
+          }})
       end
 
       # TO_DO Si el mensaje se le pone una fecha de envío se programa su envío
       # Si no se pone fecha de envío se envía de una vez y no es borrador
       if params[:sent_dateTime] != DateTime.now and params[:sent_dateTime] != ""
-        #Make Schedule Sending
+        @idMensaje = JSON.parse(@sentMail.body)["id"]
+       @scheduledMail = HTTParty.post(ms_ip("schs")+"/scheduledsending/add", {
+         body: {
+           :user_id => @username,
+           :mail_id => @idMensaje,
+           :date => params[:sent_dateTime]
+         }.to_json,
+         :headers => {
+           'Content-Type' => 'application/json'
+         }
+       })
       end
 
     else
@@ -205,7 +225,7 @@ class MailController < ApplicationController
   end
 
   def bySender
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/sender/"+params[:sender])
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/sender/"+params[:sender])
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -214,7 +234,7 @@ class MailController < ApplicationController
   end
 
   def read
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/read")
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/read")
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -223,7 +243,7 @@ class MailController < ApplicationController
   end
 
   def unread
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/unread/")
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/unread/")
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -232,7 +252,7 @@ class MailController < ApplicationController
   end
 
   def urgent
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/urgent/")
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/urgent/")
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -241,12 +261,12 @@ class MailController < ApplicationController
   end
 
   def not_urgent
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@usuario+"/not_urgent/")
+    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/not_urgent/")
     render status: 200, json: @result.body
   end
 
   def get_received_mails
-    @response = HTTParty.get(ms_ip("in")+"/inbox/user/"+@usuario)
+    @response = HTTParty.get(ms_ip("in")+"/inbox/user/"+@username)
     #render json: @response.body
     return @response
   end
