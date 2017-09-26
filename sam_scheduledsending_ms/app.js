@@ -187,9 +187,18 @@ function intervalFunc() {
                  if (data[i].value.date.day==now.getDate()){
                    if (data[i].value.date.hour==now.getHours()-5){
                      if (data[i].value.date.minutes==now.getMinutes()){
-                         couch.del(dbName, data[i].id,data[i].value.rev).then(
+                       couch.update('http://192.168.99.102:4000/senddrafts',{
+                           mail_id:data[i].value.mail_id
+                         }).then(
                            function(data, headers, status){
-                             console.log("El correo del usuario "+data[i].value.user_id+" con id "+data[i].value.mail_id+" se ha enviado")
+                             res.send('Send successfully');
+                             couch.del(dbName, data[i].id,data[i].value.rev).then(
+                               function(data, headers, status){
+                                res.send()
+                               },
+                               function(err){
+                                 res.send(err);
+                               });
                            },
                            function(err){
                              res.send(err);
