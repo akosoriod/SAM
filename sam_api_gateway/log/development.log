@@ -14631,3 +14631,99 @@ Completed 200 OK in 259ms (Views: 0.2ms)
 >>>>>>> sendmail
 
 
+Started GET "/inbox/read/" for 127.0.0.1 at 2017-09-25 19:24:54 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"read"}
+Filter chain halted as :validate_token rendered or redirected
+Completed 401 Unauthorized in 945ms (Views: 0.4ms)
+
+
+Started GET "/inbox/read/" for 127.0.0.1 at 2017-09-25 19:25:16 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"read"}
+Completed 500 Internal Server Error in 128ms
+
+
+  
+NoMethodError (undefined method `code' for nil:NilClass):
+  
+app/controllers/mail_controller.rb:240:in `by_filter'
+Started GET "/inbox/read/" for 127.0.0.1 at 2017-09-25 19:25:57 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"read"}
+Completed 200 OK in 99ms (Views: 0.1ms)
+
+
+Started GET "/inbox/unread/" for 127.0.0.1 at 2017-09-25 19:26:04 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"unread"}
+Completed 200 OK in 14ms (Views: 0.1ms)
+
+
+Started GET "/inbox/urgent/" for 127.0.0.1 at 2017-09-25 19:26:08 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"urgent"}
+Completed 200 OK in 25ms (Views: 0.1ms)
+
+
+Started GET "/inbox/not_urgent/" for 127.0.0.1 at 2017-09-25 19:26:17 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"not_urgent"}
+Completed 200 OK in 26ms (Views: 0.1ms)
+
+
+Started GET "/inbox/gays/" for 127.0.0.1 at 2017-09-25 19:26:35 -0500
+Processing by MailController#by_filter as */*
+  Parameters: {"filter"=>"gays"}
+Completed 404 Not Found in 19ms (Views: 0.2ms)
+
+
+Started GET "/sender/davsanba" for 127.0.0.1 at 2017-09-25 19:27:04 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/sender/davsanba"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/inbox/sender/davsanba" for 127.0.0.1 at 2017-09-25 19:27:23 -0500
+Processing by MailController#bySender as */*
+  Parameters: {"sender"=>"davsanba"}
+Completed 500 Internal Server Error in 5ms
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/mail_controller.rb:229:in `+'
+app/controllers/mail_controller.rb:229:in `bySender'
+Started GET "/inbox/sender/davsanba" for 127.0.0.1 at 2017-09-25 19:27:51 -0500
+Processing by MailController#bySender as */*
+  Parameters: {"sender"=>"davsanba"}
+Completed 200 OK in 119ms (Views: 0.1ms)
+
+
+Started GET "/inbox/sender/felipe" for 127.0.0.1 at 2017-09-25 19:27:57 -0500
+Processing by MailController#bySender as */*
+  Parameters: {"sender"=>"felipe"}
+Completed 404 Not Found in 14ms (Views: 0.2ms)
+
+
