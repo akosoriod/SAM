@@ -186,7 +186,7 @@ class MailController < ApplicationController
 
 
   def getAllSentMails
-    results = HTTParty.get(ms_ip("sm")+"/sent_mails")
+    results = HTTParty.get(ms_ip("sm")+"/sent_mails/user/"+@username)
     return results
   end
 
