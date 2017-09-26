@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   #Login
   get 'refreshtoken', to: 'sessions#refresh_token'
   post 'users/login', to: 'sessions#login'
+  delete 'users/logout', to: 'sessions#logout'
+  post 'users/closesesions', to: 'sessions#remove_tokens'
 
   #Usuario
   get 'users/index', to: 'users#index_user'

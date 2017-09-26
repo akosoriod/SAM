@@ -18,8 +18,21 @@ skip_before_action :validate_token, only: [:refresh_token, :login]
   end
 
   def refresh_token
-    puts ms_ip("ss") + "/refresh"
     results = HTTParty.get(ms_ip("ss") + "/refresh", headers:{
+      "Authorization": request.headers['AUTHORIZATION']
+      })
+      render status: results.code, json: results.body
+  end
+
+  def logout
+    results = HTTParty.delete(ms_ip("ss") + "/revoke", headers:{
+      "Authorization": request.headers['AUTHORIZATION']
+      })
+      render status: results.code, json: results.body
+  end
+
+  def remove_tokens
+    esults = HTTParty.delete(ms_ip("ss") + "/revoke/"+@username, headers:{
       "Authorization": request.headers['AUTHORIZATION']
       })
       render status: results.code, json: results.body

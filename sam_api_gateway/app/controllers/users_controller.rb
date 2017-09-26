@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       value = user_params.to_h
       value.deep_transform_keys!{ |key| key.to_s.camelize(:lower) }
       value["userName"] = value.delete("username")
-      create_user = HTTParty.post(ms_ip("rg")+"/users", body: value, query:{user:value})
+      create_user = HTTParty.post(ms_ip("rg")+"/users", body: value.to_json, :headers => { 'Content-Type' => 'application/json' })
       if create_user.code == 200
         render status: 200, json: {body:{message: "Usuario creado"}}.to_json
       else
