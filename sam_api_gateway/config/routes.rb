@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   post 'users/create', to: 'users#create_user'
   delete 'users/destroy/:id', to: 'users#destroy_user'
 
+
   #SendMail
-  get 'sentmails', to: 'mail#sentMails'
+  get 'sentmails/user/:sender', to: 'mail#sentMails'
   get 'sentmails/:id', to: 'mail#sentMail'
   delete 'sentmails/:id', to: 'mail#delSent'
   post 'sendmail', to: 'mail#sendMail'

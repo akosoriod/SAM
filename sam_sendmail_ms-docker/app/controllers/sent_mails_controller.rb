@@ -9,10 +9,12 @@ class SentMailsController < ApplicationController
 
   # GET /sent_mails/1
   def show
-    render json: SentMail.sentId(params[:id])
     if SentMail.sentId(params[:id]).length == 0
       render status: 404
-    end
+
+  else
+    render json: SentMail.sentId(params[:id])
+  end
   end
 
   # POST /sent_mails
@@ -97,7 +99,7 @@ end
       end
     else
       @sent_mails = SentMail.drafts
-      render json: @sent_mails.to_json(:only => [ :id, :subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
+      render json: @sent_mails.to_json(:only => [ :id, :sender,:recipient,:subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
     end
 
   end
@@ -134,6 +136,10 @@ end
 
   end
 
+def get_by_user
+  @sent_mails=SentMail.byUser(params[:sender])
+  render json: @sent_mails.to_json(:only => [ :id, :sender,:recipient,:subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
+end
 
   private
   # Use callbacks to share common setup or constraints between actions.

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :sent_mails
 
   #filtered
+  get 'sent_mails/user/:sender', to: 'sent_mails#get_by_user'
   get 'drafts', to: 'sent_mails#drafts'
   get 'drafts/:id', to: 'sent_mails#drafts'
   put 'drafts/:id', to: 'sent_mails#modifyDraft'
