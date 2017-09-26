@@ -43,16 +43,27 @@ class MailController < ApplicationController
   def send_drafts
   draft={draft:false}.to_json
     @sent_draft = HTTParty.put(ms_ip("sm")+"/sentdraft/"+params[:id].to_s,:body=>draft,
-     :headers => { "Content-Type" => 'application/json'})
+     :headers => { "Authorization": request.headers['AUTHORIZATION']})
     if @sent_draft.code == 200
-
       mail_draft=JSON.parse(@sent_draft.body)
-      mail_draft["Read"]=false
-      mail_draft.delete("draft")
-      mail_draft.delete("created_at")
-      mail_draft.delete("updated_at")
-      receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail_draft)
-
+      mail2 = {
+          body: {
+          :Sender => mail_draft['sender'],
+          :Recipient => mail_draft['recipient'],
+          :Cc => mail_draft['cc'],
+          :Distribution_list => mail_draft['distribution_list'],
+          :Subject => mail_draft['subject'],
+          :Message_body => mail_draft['message_body'],
+          :Attachments => mail_draft['attachment'],
+          :Sent_dateTime => mail_draft['sent_dateTime'],
+          :Urgent => mail_draft['urgent'],
+          :Read => false
+          }.to_json,
+          :headers => {
+          'Content-Type' => 'application/json'
+          }
+          }
+      receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
       render status: 200, json: @sent_draft.body
     else
       render status: 404, json: {body:{message: "Draft wasn't modify"}}.to_json

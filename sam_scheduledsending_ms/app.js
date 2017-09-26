@@ -176,35 +176,40 @@ function objDate(date){
 }
 
 
+
 function intervalFunc() {
   couch.get(dbName, viewUrl).then(
         function(data, headers, status){
           var data=data.data.rows;
           var now = new Date()
-          console.log(now.getDate());
-          console.log(now.getHours());
-          console.log(now.getMinutes());
+          console.log(now.getFullYear()+" / "+(Number(now.getMonth())+1)+" / "+now.getDate()+" / "+now.getHours()+" / "+now.getMinutes());
           for (i=0;i<data.length;i++){
              if (data[i].value.date.year==now.getFullYear()){
-               if (data[i].value.date.month==now.getMonth()+1){
+               if (data[i].value.date.month==(Number(now.getMonth())+1)){
                  if (data[i].value.date.day==now.getDate()){
                    if (data[i].value.date.hour==now.getHours()){
                      if (data[i].value.date.minutes==now.getMinutes()){
-                        console.log(data[i].value.mail_id);
+                       console.log("se enviara el mail con id "+data[i].value.mail_id);
 
-                      request('http://192.168.99.101:4000/senddrafts'+data[i].value.mail_id, function (error, response, body) {
-                             console.log('error:', error); // Print the error if one occurred and handle it
-                             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-                             return
-                           });
 
-                      couch.del(dbName, data[i].id,data[i].value.rev).then(
-                             function(data, headers, status){
+                      request.get('http://192.168.99.101:4000/senddrafts/'+data[i].value.mail_id).on('response', function(response) {
+                      console.log(response.statusCode) // 200
+                      console.log(response.headers['content-type']) // 'image/png'
+                    });
+                      /* app.get('http://192.168.99.101:4000/senddrafts/'+data[i].value.mail_id, function (req, res){
+                          res.send("sended");
+                       },
+                       function(err){
+                         res.send(err);
+                       });*/
+
+                      /*couch.del(dbName, data[i].id,data[i].value.rev).then(
+                           function(data, headers, status){
                               console.log('ScheduledSending deleted');
                              },
                              function(err){
                                console.log(err);
-                             });
+                             });*/
                          }
                          }
                         }

@@ -10,8 +10,8 @@ skip_before_action :validate_token, only: [:refresh_token, :login]
       :headers => { 'Content-Type' => 'application/json' })
     if login.code == 200
       device_reg = HTTParty.post(ms_ip("nt")+"/user_devices", body:{
-        username: params[:username]
-        device_id: params[:devise_id]
+        username: params[:username],
+        device_id: params[:device_id]
       }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
       if device_reg.code == 201
