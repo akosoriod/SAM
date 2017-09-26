@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'sentmails/:id', to: 'mail#sentMail'
   delete 'sentmails/:id', to: 'mail#delSent'
   post 'sendmail', to: 'mail#sendMail'
-  put 'senddrafts', to: 'mail#send_drafts'
+  get 'senddrafts/:id', to: 'mail#send_drafts'
 
   #filtered
   get 'drafts', to: 'mail#drafts'

@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const request = require('request');
 const NodeCouchDb = require('node-couchdb');
 
 // node-couchdb instance with default options
@@ -181,35 +181,36 @@ function intervalFunc() {
         function(data, headers, status){
           var data=data.data.rows;
           var now = new Date()
+          console.log(now.getDate());
+          console.log(now.getHours());
+          console.log(now.getMinutes());
           for (i=0;i<data.length;i++){
              if (data[i].value.date.year==now.getFullYear()){
                if (data[i].value.date.month==now.getMonth()+1){
                  if (data[i].value.date.day==now.getDate()){
-                   if (data[i].value.date.hour==now.getHours()-5){
+                   if (data[i].value.date.hour==now.getHours()){
                      if (data[i].value.date.minutes==now.getMinutes()){
-                       couch.update('http://192.168.99.102:4000/senddrafts',{
-                           mail_id:data[i].value.mail_id
-                         }).then(
-                           function(data, headers, status){
-                             res.send('Send successfully');
-                             couch.del(dbName, data[i].id,data[i].value.rev).then(
-                               function(data, headers, status){
-                                res.send()
-                               },
-                               function(err){
-                                 res.send(err);
-                               });
-                           },
-                           function(err){
-                             res.send(err);
+                        console.log(data[i].value.mail_id);
+
+                      request('http://192.168.99.101:4000/senddrafts'+data[i].value.mail_id, function (error, response, body) {
+                             console.log('error:', error); // Print the error if one occurred and handle it
+                             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                             return
                            });
 
+                      couch.del(dbName, data[i].id,data[i].value.rev).then(
+                             function(data, headers, status){
+                              console.log('ScheduledSending deleted');
+                             },
+                             function(err){
+                               console.log(err);
+                             });
+                         }
                          }
                         }
                       }
                     }
                   }
-              }
           });
       }
 
