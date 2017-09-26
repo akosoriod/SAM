@@ -31,6 +31,8 @@ class SentMailsController < ApplicationController
     end
   end
 
+
+
   # PATCH/PUT /sent_mails/1
   def update
     if @sent_mail.update(sent_mail_params)
@@ -40,10 +42,21 @@ class SentMailsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /sentdraft
+def sent_draft
+  @draft=SentMail.drafts.find(params[:id])
+  if @draft.update_attributes(draft: params[:draft])
+    render json: @draft
+  else
+    render json: @draft.errors, status: :unprocessable_entity
+  end
+end
+
   # PATCH/PUT /drafts/1
   def modifyDraft
     @update_mail=SentMail.drafts.find(params[:id])
-    if @update_mail.update_attributes(recipient: params[:recipient],
+    if @update_mail.update_attributes(
+      recipient: params[:recipient],
       cc: params[:cc],
       distribution_list: params[:distribution_list],
       subject: params[:subject],

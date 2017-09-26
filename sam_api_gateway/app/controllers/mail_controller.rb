@@ -80,6 +80,26 @@ class MailController < ApplicationController
     end
   end
 
+# PUT /drafts/1  - send_daft
+  def send_drafts
+  draft={draft:false}.to_json
+    @sent_draft = HTTParty.put(ms_ip("sm")+"/sentdraft/"+params[:id].to_s,:body=>draft,
+     :headers => { "Content-Type" => 'application/json'})
+    if @sent_draft.code == 200
+
+      mail_draft=JSON.parse(@sent_draft.body)
+      mail_draft["Read"]=false
+      mail_draft.delete("draft")
+      mail_draft.delete("created_at")
+      mail_draft.delete("updated_at")
+      receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail_draft)
+
+      render status: 200, json: @sent_draft.body
+    else
+      render status: 404, json: {body:{message: "Draft wasn't modify"}}.to_json
+    end
+  end
+
   # GET /sent_mails - sentMails
   def sentMails
     @sentMails = getAllSentMails

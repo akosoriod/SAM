@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'drafts', to: 'sent_mails#drafts'
   get 'drafts/:id', to: 'sent_mails#drafts'
   put 'drafts/:id', to: 'sent_mails#modifyDraft'
+  put 'sentdraft/:id',to:'sent_mails#sent_draft'
   delete 'drafts/:id', to: 'sent_mails#delDraft'
   get 'senturgent', to: 'sent_mails#urgent'
   get 'senturgent/:id', to: 'sent_mails#urgent'
