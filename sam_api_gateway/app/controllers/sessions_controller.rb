@@ -9,9 +9,17 @@ skip_before_action :validate_token, only: [:refresh_token, :login]
     }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
     if login.code == 200
-      token = HTTParty.get(ms_ip("ss")+"/token/"+params[:username])
-      puts token.body
-      render status: token.code, json: token.body
+      device_reg = HTTParty.post(ms_ip("nt")+"/user_devices", body:{
+        username: params[:username]
+        device_id: params[:devise_id]
+      }.to_json,
+      :headers => { 'Content-Type' => 'application/json' })
+      if device_reg.code == 201
+        token = HTTParty.get(ms_ip("ss")+"/token/"+params[:username])
+        render status: token.code, json: token.body
+      else
+        render json: device_reg.body, status: device_reg.code
+      end
     else
       render status: 404
     end
