@@ -34,9 +34,6 @@ Rails.application.routes.draw do
   get 'ReceivedMails', to: 'mail#received_mails'
   get 'ReceivedMails/:id', to: 'mail#received_mail'
   get 'inbox/sender/:sender', to: 'mail#bySender'
-  get 'inbox/read/', to: 'mail#read'
-  get 'inbox/unread/', to: 'mail#unread'
-  get 'inbox/urgent/', to: 'mail#urgent'
-  get 'inbox/not_urgent/', to: 'mail#not_urgent'
+  get 'inbox/:filter', to: 'mail#by_filter'
 
 end

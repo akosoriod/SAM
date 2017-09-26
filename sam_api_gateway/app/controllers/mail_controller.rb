@@ -208,7 +208,7 @@ class MailController < ApplicationController
   end
 
   def received_mails
-    @result = get_received_mails
+    @result = HTTParty.get(ms_ip("in")+"/inbox/user/"+@username)
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -217,7 +217,7 @@ class MailController < ApplicationController
   end
 
   def received_mail
-    @result = get_received_mail(params[:id])
+    @result = HTTParty.get(ms_ip("in")+"/received_mails"+params[:id].to_s)
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -226,7 +226,7 @@ class MailController < ApplicationController
   end
 
   def bySender
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/sender/"+params[:sender])
+    @result = HTTParty.get(ms_ip("in")+"/inbox/#{@username}/sender/"+params[:sender])
     if @result.code == 200
       render status: 200, json: @result.body
     else
@@ -234,47 +234,14 @@ class MailController < ApplicationController
     end
   end
 
-  def read
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/read")
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Not read mails found"}}.to_json
-    end
-  end
-
-  def unread
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/unread/")
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Not unread mails found"}}.to_json
-    end
-  end
-
-  def urgent
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/urgent/")
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Not urgent mails found"}}.to_json
-    end
-  end
-
-  def not_urgent
-    @result = HTTParty.get(ms_ip("in")+"/inbox/"+@username+"/not_urgent/")
-    render status: 200, json: @result.body
-  end
-
-  def get_received_mails
-    @response = HTTParty.get(ms_ip("in")+"/inbox/user/"+@username)
-    #render json: @response.body
-    return @response
-  end
-
-  def get_received_mail(id)
-    @response = HTTParty.get(ms_ip("in")+"/received_mails"+id.to_s)
-    return @response
+  def by_filter
+    params
+      result = HTTParty.get("#{ms_ip("in")}/inbox/#{@username}/#{params[:filter]}")
+      if result.code == 200
+        render status: 200, json: result.body
+      else
+        render status: 404, json: {body:{message: "Not #{params[:filter]} mails found"}}.to_json
+      end
   end
 
 end
