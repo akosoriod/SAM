@@ -196,20 +196,13 @@ function intervalFunc() {
                       console.log(response.statusCode) // 200
                       console.log(response.headers['content-type']) // 'image/png'
                     });
-                      /* app.get('http://192.168.99.101:4000/senddrafts/'+data[i].value.mail_id, function (req, res){
-                          res.send("sended");
-                       },
-                       function(err){
-                         res.send(err);
-                       });*/
-
-                      /*couch.del(dbName, data[i].id,data[i].value.rev).then(
+                      couch.del(dbName, data[i].id,data[i].value.rev).then(
                            function(data, headers, status){
                               console.log('ScheduledSending deleted');
                              },
                              function(err){
                                console.log(err);
-                             });*/
+                             });
                          }
                          }
                         }

@@ -1,5 +1,7 @@
 class MailController < ApplicationController
 
+  skip_before_action :validate_token, only: :send_drafts
+
   # POST /sent_mails  - sendMail
   def sendMail
     @sentMail = HTTParty.post(ms_ip("sm")+"/sent_mails",ParamsHelper.send_mail_params(params, @username))
@@ -42,8 +44,7 @@ class MailController < ApplicationController
 # PUT /drafts/1  - send_daft
   def send_drafts
   draft={draft:false}.to_json
-    @sent_draft = HTTParty.put(ms_ip("sm")+"/sentdraft/"+params[:id].to_s,:body=>draft,
-     :headers => { "Authorization": request.headers['AUTHORIZATION']})
+    @sent_draft = HTTParty.put(ms_ip("sm")+"/sentdraft/"+params[:id].to_s,:body=>draft)
     if @sent_draft.code == 200
       mail_draft=JSON.parse(@sent_draft.body)
       mail2 = {
