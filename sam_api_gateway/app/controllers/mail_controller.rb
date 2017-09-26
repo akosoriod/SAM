@@ -2,53 +2,13 @@ class MailController < ApplicationController
 
   # POST /sent_mails  - sendMail
   def sendMail
-      puts @username
-    mail = {
-      body: {
-        :sender => @username,
-        :recipient => params[:recipient],
-        :distribution_list => params[:distribution_list],
-        :subject => params[:subject],
-        :message_body => params[:message_body],
-        :attachment => params[:attachment],
-        :cc => params[:cc],
-        :sent_dateTime => params[:sent_dateTime],
-        :draft => params[:draft],
-        :urgent => params[:urgent],
-        :confirmation => params[:confirmation]
-      }.to_json,
-      :headers => {
-        'Content-Type' => 'application/json'
-      }
-    }
-
-    mail2 = {
-      body: {
-        :Sender => @username,
-        :Recipient => params[:recipient],
-        :Cc => params[:cc],
-        :Distribution_list => params[:distribution_list],
-        :Subject => params[:subject],
-        :Message_body => params[:message_body],
-        :Attachments => params[:attachment],
-        :Sent_dateTime => params[:sent_dateTime],
-        :Urgent => params[:urgent],
-        :Read => false
-      }.to_json,
-      :headers => {
-        'Content-Type' => 'application/json'
-      }
-    }
-
-
-
-    @sentMail = HTTParty.post(ms_ip("sm")+"/sent_mails",mail)
+    @sentMail = HTTParty.post(ms_ip("sm")+"/sent_mails",ParamsHelper.send_mail_params(params, @username))
     if @sentMail.code == 201
       render status: 201, json: @sentMail
 
       #TO_DO Si el mensaje se envía (NO ES BORRADOR) se guarda en la base de inbox de usuario que recibe
       unless params[:draft]
-        @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", mail2)
+        @receivedMail = HTTParty.post(ms_ip("in")+"/received_mails", ParamsHelper.inbox_params(params, @username))
 
         @sendnotification = HTTParty.post(ms_ip("nt")+"/notifications", { body: {
           :username => params[:recipient],
@@ -58,15 +18,14 @@ class MailController < ApplicationController
           }})
       end
 
-
       # TO_DO Si el mensaje se le pone una fecha de envío se programa su envío
       # Si no se pone fecha de envío se envía de una vez y no es borrador
       if params[:sent_dateTime] != DateTime.now and params[:sent_dateTime] != ""
-        @idMensaje = JSON.parse(@sentMail.body)["id"]
-       @scheduledMail = HTTParty.post(ms_ip("schs")+"/scheduledsending/add", {
+        idMensaje = JSON.parse(@sentMail.body)["id"]
+        @scheduledMail = HTTParty.post(ms_ip("schs")+"/scheduledsending/add", {
          body: {
            :user_id => @username,
-           :mail_id => @idMensaje,
+           :mail_id => idMensaje,
            :date => params[:sent_dateTime]
          }.to_json,
          :headers => {
@@ -207,7 +166,7 @@ class MailController < ApplicationController
 
 
   def getAllSentMails
-    results = HTTParty.get(ms_ip("sm")+"/sent_mails")
+    results = HTTParty.get(ms_ip("sm")+"/sent_mails/user/"+@username)
     return results
   end
 

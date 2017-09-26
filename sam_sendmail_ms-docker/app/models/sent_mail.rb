@@ -9,8 +9,16 @@ class SentMail < ApplicationRecord
 		where(draft: false)
 	end
 
+	def self.byUser(username)
+		where(sender: username)
+	end
+
 	def self.drafts
 		where(draft: true)
+	end
+
+	def self.drafts_by_User(username)
+		byUser(username).where(draft: true)
 	end
 
 	def self.urgent

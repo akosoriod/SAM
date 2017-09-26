@@ -14727,3 +14727,160 @@ Processing by MailController#bySender as */*
 Completed 404 Not Found in 14ms (Views: 0.2ms)
 
 
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:52:12 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Filter chain halted as :validate_token rendered or redirected
+Completed 401 Unauthorized in 2756ms (Views: 0.6ms)
+
+
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:52:47 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 132ms
+
+
+  
+NoMethodError (undefined method `inbox_params' for ParamsModifierHelper:Module):
+  
+app/controllers/mail_controller.rb:44:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:53:20 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 5ms
+
+
+  
+NoMethodError (undefined method `inbox_params' for ParamsModifierHelper:Module):
+  
+app/controllers/mail_controller.rb:44:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:55:21 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 98ms
+
+
+  
+TypeError (wrong argument type Class (expected Module)):
+  
+app/helpers/params_modifier_helper.rb:1:in `extend'
+app/helpers/params_modifier_helper.rb:1:in `<class:ParamsModifierHelper>'
+app/helpers/params_modifier_helper.rb:1:in `<top (required)>'
+app/controllers/mail_controller.rb:44:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:57:22 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 115ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.101:3001 (Connection refused - connect(2) for "192.168.99.101" port 3001)):
+  
+app/controllers/mail_controller.rb:47:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:58:54 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 143ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.101:3001 (Connection refused - connect(2) for "192.168.99.101" port 3001)):
+  
+app/controllers/mail_controller.rb:47:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:59:28 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 87ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.101:3001 (Connection refused - connect(2) for "192.168.99.101" port 3001)):
+  
+app/controllers/mail_controller.rb:47:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 19:59:54 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 5ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.101:3001 (Connection refused - connect(2) for "192.168.99.101" port 3001)):
+  
+app/controllers/mail_controller.rb:47:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 20:01:11 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 72ms
+
+
+  
+NameError (undefined local variable or method `mail' for #<MailController:0x0055f1517dd000>):
+  
+app/controllers/mail_controller.rb:9:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 20:01:32 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 161ms
+
+
+  
+NameError (undefined local variable or method `mail' for #<MailController:0x0055ce6f4a2de0>):
+  
+app/controllers/mail_controller.rb:9:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 20:03:06 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 164ms
+
+
+  
+NameError (undefined local variable or method `mail' for #<MailController:0x0056154dc20fe8>):
+  
+app/controllers/mail_controller.rb:10:in `sendMail'
+Started POST "/sendmail" for 127.0.0.1 at 2017-09-25 20:07:00 -0500
+Processing by MailController#sendMail as */*
+  Parameters: {"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true, "mail"=>{"sender"=>"Uncorreoremitente", "recipient"=>"uncorreoreceptor", "cc"=>"otrocorreoreceptor", "distribution_list"=>"", "subject"=>"UN ASUNTO MAS", "message_body"=>"ESTE ES el cuerpo del mensaje", "sent_dateTime"=>"2027-09-27T13:08:45.000Z", "draft"=>false, "urgent"=>true, "confirmation"=>true}}
+Completed 500 Internal Server Error in 3ms
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to 192.168.99.101:3001 (Connection refused - connect(2) for "192.168.99.101" port 3001)):
+  
+app/controllers/mail_controller.rb:9:in `sendMail'
+Started POST "/users/create" for 127.0.0.1 at 2017-09-25 20:22:44 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba11", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba11", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 400 Bad Request in 739ms (Views: 0.3ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-25 20:25:24 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba11", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanba11", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 422 Unprocessable Entity in 129ms (Views: 0.2ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-25 20:25:32 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbag", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbag", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 201 Created in 67ms (Views: 0.1ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2017-09-25 20:31:05 -0500
+Processing by SessionsController#logout as */*
+  Parameters: {"username"=>"davsanbwqfa", "password"=>"[FILTERED]", "session"=>{"username"=>"davsanbwqfa", "password"=>"[FILTERED]"}}
+Filter chain halted as :validate_token rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2017-09-25 20:31:37 -0500
+Processing by SessionsController#logout as */*
+  Parameters: {"username"=>"davsanbwqfa", "password"=>"[FILTERED]", "session"=>{"username"=>"davsanbwqfa", "password"=>"[FILTERED]"}}
+Completed 200 OK in 76ms (Views: 0.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2017-09-25 20:36:41 -0500
+Processing by UsersController#create_user as */*
+  Parameters: {"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbag", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994", "user"=>{"first_name"=>"David", "last_name"=>"Barrera", "username"=>"davsanbag", "password"=>"[FILTERED]", "date_birth"=>"05-12-1994"}}
+Completed 422 Unprocessable Entity in 17ms (Views: 0.2ms)
+
+

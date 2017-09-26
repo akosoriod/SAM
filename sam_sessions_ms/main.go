@@ -20,8 +20,8 @@ func main() {
 	router.GET("/token/:username", sessions.GetSessionToken)
 	router.GET("/validate", sessions.ValidateToken)
 	router.GET("/refresh", sessions.RefreshToken)
-	router.DELETE("/Revoke", sessions.RevokeToken)
-	router.DELETE("/Revoke/:username", sessions.RevokeAllTokens)
+	router.DELETE("/revoke", sessions.RevokeToken)
+	router.DELETE("/revoke/:username", sessions.RevokeAllTokens)
 	initDb()
 	log.Fatal(http.ListenAndServe("0.0.0.0:3005", router))
 }

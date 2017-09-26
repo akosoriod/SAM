@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   #Login
   get 'refreshtoken', to: 'sessions#refresh_token'
   post 'users/login', to: 'sessions#login'
+  delete 'users/logout', to: 'sessions#logout'
+  delete 'users/close_all', to: 'sessions#remove_tokens'
 
   #Usuario
   get 'users/index', to: 'users#index_user'
@@ -11,8 +13,9 @@ Rails.application.routes.draw do
   post 'users/create', to: 'users#create_user'
   delete 'users/destroy/:id', to: 'users#destroy_user'
 
+
   #SendMail
-  get 'sentmails', to: 'mail#sentMails'
+  get 'sentmails/user/:sender', to: 'mail#sentMails'
   get 'sentmails/:id', to: 'mail#sentMail'
   delete 'sentmails/:id', to: 'mail#delSent'
   post 'sendmail', to: 'mail#sendMail'
