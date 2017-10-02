@@ -5,44 +5,40 @@ class SentMail < ApplicationRecord
 	validates :sender, :recipient, length: { minimum: 5, too_short: "Este campo requiere al menos 5 caracteres" }
   validates :attachment, file_size: { less_than_or_equal_to: 20.megabytes  }
 
-	def self.sent
-		where(draft: false)
+	def self.sent(params)
+		unless params[:urgent]
+			byUser(params[:sender]).where(draft: false)
+		else
+			byUser(params[:sender]).where(draft: false,urgent:params[:urgent])
+		end
 	end
 
-	def self.byUser(username)
-		where(sender: username)
+	def self.byUser(user)
+		where(sender: user)
 	end
 
-	def self.drafts
-		where(draft: true)
+	def self.drafts(params)
+		unless params[:urgent]
+			byUser(params[:sender]).where(draft: true)
+		else
+			byUser(params[:sender]).where(draft: true,urgent:params[:urgent])
+		end
 	end
 
-	def self.drafts_by_User(username)
-		byUser(username).where(draft: true)
+	def self.urgent(params)
+		byUser(params[:sender]).where(draft: false)
 	end
 
-	def self.urgent
-		where(draft: false,urgent: true)
+	def self.draftAndUrgent(params)
+		byUser(params[:sender]).where(draft: true, urgent: true)
 	end
 
-	def self.draftAndUrgent
-		where(draft: true, urgent: true)
+	def self.sentId(params)
+		where(sender: params[:sender], draft: false).find(params[:id])
 	end
 
-	def self.sentId(id)
-		sent.where(id: id)
-	end
-
-	def self.draftsId(id)
-		drafts.where(id: id)
-	end
-
-	def self.urgentId(id)
-		urgent.where(id: id)
-	end
-
-	def self.draftAndUrgentId(id)
-		draftAndUrgent.where(id: id)
+	def self.draftsId(params)
+		where(sender:params[:sender],draft: true).find(params[:id])
 	end
 
 end

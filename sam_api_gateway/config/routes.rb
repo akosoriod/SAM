@@ -15,23 +15,15 @@ Rails.application.routes.draw do
 
 
   #SendMail
-  get 'sentmails/user/:sender', to: 'mail#sentMails'
-  get 'sentmails/:id', to: 'mail#sentMail'
-  delete 'sentmails/:id', to: 'mail#delSent'
-  post 'sendmail', to: 'mail#sendMail'
-  put 'senddrafts', to: 'mail#send_drafts'
-
-  #filtered
-  get 'drafts', to: 'mail#drafts'
-  get 'drafts/:id', to: 'mail#drafts'
-  put 'drafts/:id', to: 'mail#modifyDraft'
-  delete 'drafts/:id', to: 'mail#delDraft'
-  get 'senturgent', to: 'mail#urgent'
-  get 'senturgent/:id', to: 'mail#urgent'
-  delete 'senturgent/:id', to: 'mail#delSent'
-  get 'draftsurgent', to: 'mail#draftAndUrgent'
-  get 'draftsurgent/:id', to: 'mail#draftAndUrgent'
-  delete 'draftsurgent/:id', to: 'mail#delDraft'
+  get 'sent', to: 'mail#sent'
+  get 'sent/:id', to: 'mail#sent_mail'
+  get 'draft', to: 'mail#draft_index'
+  get 'draft/:id', to: 'mail#draft_show'
+  post 'sent', to: 'mail#sendMail'
+  put 'senddrafts', to: 'mail#send_draft'
+  put 'draft/:id', to: 'mail#modify_draft'
+  delete 'sent/:id', to: 'mail#destroy_sent'
+  delete 'draft/:id', to: 'mail#destroy_draft'
 
   #ReceivedMail
   delete 'ReceivedMails/:id', to: 'mail#delReceivedMail'
