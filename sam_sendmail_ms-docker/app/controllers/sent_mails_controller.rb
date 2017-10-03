@@ -4,7 +4,10 @@ class SentMailsController < ApplicationController
   # GET /sent_mails
   def index
     sent_mails=SentMail.sent(params)
-    render json: sent_mails.to_json(:only => [ :id, :sender,:recipient,:subject, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
+    sent_mails.each do |mail|
+      mail.message_body = mail.message_body[0..9]
+    end
+    render json: sent_mails.to_json(:only => [ :id, :subject,:recipient, :message_body, :draft, :urgent, :confirmation ])
   end
 
   # GET /sent_mails/1
@@ -19,8 +22,11 @@ class SentMailsController < ApplicationController
 
   # GET /drafts
   def draft_index
-    @drafts = SentMail.drafts(params)
-    render json: @drafts.to_json(:only => [ :id, :subject, :recipient, :message_body, :sent_dateTime, :draft, :urgent, :confirmation, :created_at ])
+    drafts = SentMail.drafts(params)
+    drafts.each do |draft|
+      draft.message_body = draft.message_body[0..9]
+    end
+    render json: drafts.to_json(:only => [ :id, :subject,:recipient, :message_body, :draft, :urgent, :confirmation ])
   end
 
 # GET /drafts/1
