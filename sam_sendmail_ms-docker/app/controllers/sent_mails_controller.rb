@@ -7,7 +7,7 @@ class SentMailsController < ApplicationController
     sent_mails.each do |mail|
       mail.message_body = mail.message_body[0..9]
     end
-    render json: sent_mails.to_json(:only => [ :id, :subject,:recipient, :message_body, :draft, :urgent, :confirmation ])
+    render json: sent_mails.to_json(:only => [ :id, :subject,:recipient, :message_body, :attachment,:draft, :urgent ])
   end
 
   # GET /sent_mails/1
@@ -25,8 +25,13 @@ class SentMailsController < ApplicationController
     drafts = SentMail.drafts(params)
     drafts.each do |draft|
       draft.message_body = draft.message_body[0..9]
+      if mail.attachment.file.nil?
+        mail.attachment=false
+      else
+        mail.attachment=true
+      end
     end
-    render json: drafts.to_json(:only => [ :id, :subject,:recipient, :message_body, :draft, :urgent, :confirmation ])
+    render json: drafts.to_json(:only => [ :id, :subject,:recipient, :message_body, :attachment,:draft, :urgent])
   end
 
 # GET /drafts/1
