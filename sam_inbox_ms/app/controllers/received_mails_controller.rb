@@ -2,7 +2,7 @@ class ReceivedMailsController < ApplicationController
   before_action :set_received_mail, only: [:show, :update, :destroy]
 
   def getbyuser
-    @received_mails = ReceivedMail.where(Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(recipient: params[:recipient])
     render json: @received_mails
   end
 
@@ -45,7 +45,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/sender/nombre
   def by_sender
-    @received_mails = ReceivedMail.where(Sender: params[:sender], Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(sender: params[:sender], recipient: params[:recipient])
     if @received_mails.blank?
       #render plain: "Not mails from " + params[:sender].to_s + " found", status: 404
       render json: {message: "Not mails from " + params[:sender].to_s + " found", status: 404}, status:404
@@ -56,7 +56,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/read
   def read
-    @received_mails = ReceivedMail.where(Read: true, Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(read: true, recipient: params[:recipient])
     if @received_mails.blank?
       render json: {message: "Not read mails found", status: 404}, status:404
       return 1
@@ -66,7 +66,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/unread
   def unread
-    @received_mails = ReceivedMail.where(Read: false, Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(read: false, recipient: params[:recipient])
     if @received_mails.blank?
       render json: {message: "Not unread mails found", status: 404}, status:404
       return 1
@@ -76,7 +76,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/urgent
   def urgent
-    @received_mails = ReceivedMail.where(Urgent: true, Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(urgent: true, recipient: params[:recipient])
     if @received_mails.blank?
       render json: {message: "Not urgent mails found", status: 404}, status:404
       return 1
@@ -86,7 +86,7 @@ class ReceivedMailsController < ApplicationController
 
   # GET /inbox/not_urgent
   def not_urgent
-    @received_mails = ReceivedMail.where(Urgent: false, Recipient: params[:recipient])
+    @received_mails = ReceivedMail.where(urgent: false, recipient: params[:recipient])
     render json: @received_mails
   end
 
@@ -98,6 +98,6 @@ class ReceivedMailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def received_mail_params
-      params.require(:received_mail).permit(:Sender, :Recipient, :Cc, :Distribution_list, :Subject, :Message_body, :Attachments, :Sent_dateTime, :Created_dateTime, :Read, :Urgent)
+      params.require(:received_mail).permit(:sender, :recipient, :cc, :distribution_list, :subject, :message_body, :attachment, :sent_date, :read, :urgent)
     end
 end

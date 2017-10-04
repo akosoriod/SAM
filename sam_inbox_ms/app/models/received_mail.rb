@@ -1,3 +1,3 @@
 class ReceivedMail < ApplicationRecord
-  mount_base64_uploader :Attachments, AttachmentUploader
+  mount_base64_uploader :attachment, AttachmentUploader
 end
