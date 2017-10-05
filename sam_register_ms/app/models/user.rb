@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def self.find_by_username(username)
-    where(userName: username).first
+    where(username: username).first
   end
 
 end

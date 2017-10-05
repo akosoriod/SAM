@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   private
 
     def set_user_username
-      @user = User.find_by_username(params[:user_name])
+      @user = User.find_by_username(params[:username])
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
