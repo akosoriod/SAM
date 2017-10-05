@@ -16,17 +16,16 @@ ActiveRecord::Schema.define(version: 20170920175317) do
   enable_extension "plpgsql"
 
   create_table "received_mails", force: :cascade do |t|
-    t.string "Sender"
-    t.string "Recipient"
-    t.string "Cc"
-    t.string "Distribution_list"
-    t.string "Subject"
-    t.string "Message_body"
-    t.string "Attachments"
-    t.datetime "Sent_dateTime"
-    t.datetime "Created_dateTime"
-    t.boolean "Read"
-    t.boolean "Urgent"
+    t.string "sender"
+    t.string "recipient"
+    t.string "cc"
+    t.string "distribution_list"
+    t.string "subject"
+    t.string "message_body"
+    t.string "attachments"
+    t.datetime "sent_date"
+    t.boolean "read"
+    t.boolean "urgent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

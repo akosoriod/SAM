@@ -1,20 +1,6 @@
 class ReceivedMailsController < ApplicationController
   before_action :set_received_mail, only: [:show, :update, :destroy]
 
-  def ally
-    if (params.has_key?(:sender))
-      by_sender
-    elsif (params.has_key?(:read))
-      @received_mails = ReceivedMail.where(read: params[:read], recipient: params[:recipient])
-      render json: @received_mails
-    elsif (params.has_key?[:urgent])
-      @received_mails = ReceivedMail.where(urgent: params[:urgent], recipient: params[:recipient])
-      render json: @received_mails
-    else
-      index
-    end
-  end
-
   def getbyuser
     @received_mails = ReceivedMail.where(recipient: params[:recipient])
     render json: @received_mails
@@ -22,9 +8,14 @@ class ReceivedMailsController < ApplicationController
 
   # GET /received_mails
   def index
-    @received_mails = ReceivedMail.all
-
-    render json: @received_mails
+    puts "USUARIO: #{params[:username]}"
+    @rm = ReceivedMail.all
+    @rm = @rm.by_sender(params[:sender]) if params.has_key?(:sender)
+    @rm = @rm.by_read(params[:read]) if params.has_key?(:read)
+    @rm = @rm.by_urgent(params[:urgent]) if params.has_key?(:urgent)
+    page = params.has_key?(:page) ? params[:page] : 0
+    per_page = params.has_key?(:per_page) ? params[:per_page] : 10
+    render json: @rm.paginate(page.to_i , per_page.to_i)
   end
 
   # GET /received_mails/1
