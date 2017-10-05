@@ -1,6 +1,20 @@
 class ReceivedMailsController < ApplicationController
   before_action :set_received_mail, only: [:show, :update, :destroy]
 
+  def ally
+    if (params.has_key?(:sender))
+      by_sender
+    elsif (params.has_key?(:read))
+      @received_mails = ReceivedMail.where(read: params[:read], recipient: params[:recipient])
+      render json: @received_mails
+    elsif (params.has_key?[:urgent])
+      @received_mails = ReceivedMail.where(urgent: params[:urgent], recipient: params[:recipient])
+      render json: @received_mails
+    else
+      index
+    end
+  end
+
   def getbyuser
     @received_mails = ReceivedMail.where(recipient: params[:recipient])
     render json: @received_mails
