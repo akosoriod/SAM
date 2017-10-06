@@ -2,7 +2,6 @@ class MailController < ApplicationController
 
   # POST /sent_mails  - sendMail
   def sendMail
-
     @sentMail = HTTParty.post(ms_ip("sm")+"/sent",ParamsHelper.send_mail_params(params, @username))
     if @sentMail.code == 201
       render status: 201, json: @sentMail.to_json
@@ -21,13 +20,13 @@ class MailController < ApplicationController
 
         # TO_DO Si el mensaje se le pone una fecha de envío se programa su envío
         # Si no se pone fecha de envío se envía de una vez y no es borrador
-        if params[:sent_dateTime] != DateTime.now and params[:sent_dateTime] != ""
+        if params[:sent_date] != DateTime.now and params[:sent_date] != ""
           idMensaje = JSON.parse(@sentMail.body)["id"]
           @scheduledMail = HTTParty.post(ms_ip("schs")+"/scheduledsending/add", {
             body: {
               user_id: @username,
               mail_id: idMensaje,
-              date: params[:sent_dateTime]
+              date: params[:sent_date]
             }.to_json,
             headers:{
               'Content-Type': 'application/json'
@@ -38,6 +37,7 @@ class MailController < ApplicationController
         else
           render json: {messsage: "Error, mail couldn't be sent or saved"}
         end
+
       end
 
       # PUT /drafts/1  - send_daft
@@ -108,7 +108,6 @@ class MailController < ApplicationController
 
       # GET /sent_mails/drafts - drafts
       def draft_index
-
         drafts=''
         if params[:urgent]
           drafts = HTTParty.get(ms_ip("sm")+"/draft/",query:{sender:@username,urgent:params[:urgent]})
@@ -123,7 +122,6 @@ class MailController < ApplicationController
       end
 
       def draft_show
-
         draft=HTTParty.get(ms_ip("sm")+"/draft/"+params[:id].to_s,query:{sender:@username})
         if draft.code == 200
           render status: 200, json: draft.body

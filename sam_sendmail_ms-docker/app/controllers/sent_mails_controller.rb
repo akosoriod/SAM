@@ -25,10 +25,10 @@ class SentMailsController < ApplicationController
     drafts = SentMail.drafts(params)
     drafts.each do |draft|
       draft.message_body = draft.message_body[0..9]
-      if mail.attachment.file.nil?
-        mail.attachment=false
+      if draft.attachment.file.nil?
+        draft.attachment=false
       else
-        mail.attachment=true
+        draft.attachment=true
       end
     end
     render json: drafts.to_json(:only => [ :id, :subject,:recipient, :message_body, :attachment,:draft, :urgent])
@@ -50,8 +50,8 @@ class SentMailsController < ApplicationController
     if sent_mail.subject = ""
       sent_mail.subject = "(sin asunto)"
     end
-    if sent_mail.sent_dateTime = ""
-      sent_mail.sent_dateTime = DateTime.now
+    if sent_mail.sent_date = ""
+      sent_mail.sent_date = DateTime.now
     end
     if sent_mail.save
       render json: sent_mail, status: :created
@@ -87,8 +87,8 @@ end
       if @update_mail.subject.nil?
         @update_mail.update_attributes(subject:"(sin asunto)")
       end
-      if @update_mail.sent_dateTime.nil?
-        @update_mail.update_attributes(sent_dateTime: DateTime.now)
+      if @update_mail.sent_date.nil?
+        @update_mail.update_attributes(sent_date: DateTime.now)
       end
       render json: @update_mail
     else
