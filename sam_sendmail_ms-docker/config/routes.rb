@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  resources :sent_mails
+  #resources :sent_mails
 
-  #filtered
-  get 'sent_mails/user/:sender', to: 'sent_mails#get_by_user'
-  get 'drafts', to: 'sent_mails#drafts'
-  get 'drafts/:id', to: 'sent_mails#drafts'
-  put 'drafts/:id', to: 'sent_mails#modifyDraft'
-  put 'sentdraft/:id',to:'sent_mails#sent_draft'
-  delete 'drafts/:id', to: 'sent_mails#delDraft'
-  get 'senturgent', to: 'sent_mails#urgent'
-  get 'senturgent/:id', to: 'sent_mails#urgent'
-  delete 'senturgent/:id', to: 'sent_mails#destroy'
-  get 'draftsurgent', to: 'sent_mails#draftAndUrgent'
-  get 'draftsurgent/:id', to: 'sent_mails#draftAndUrgent'
-  delete 'draftsurgent/:id', to: 'sent_mails#delDraft'
+  get 'sent', to: 'sent_mails#index'
+  get 'sent/:id', to: 'sent_mails#show'
+  get 'draft', to: 'sent_mails#draft_index'
+  get 'draft/:id', to: 'sent_mails#draft_show'
+
+  post 'sent', to: 'sent_mails#create'
+
+  put 'senddraft/:id',to:'sent_mails#sent_draft'
+  put 'draft/:id', to: 'sent_mails#modify_draft'
+
+  delete 'draft/:id', to: 'sent_mails#delDraft'
+  delete 'sent/:id', to: 'sent_mails#destroy'
 
 end

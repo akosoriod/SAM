@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170920143620) do
     t.string "subject"
     t.text "message_body"
     t.string "attachment"
-    t.datetime "sent_dateTime"
+    t.datetime "sent_date"
     t.boolean "draft"
     t.boolean "urgent"
     t.boolean "confirmation"

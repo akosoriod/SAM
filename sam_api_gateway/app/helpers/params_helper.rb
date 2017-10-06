@@ -2,16 +2,16 @@ module ParamsHelper
   def self.inbox_params(params, username)
     inbox = {
       body: {
-        :Sender => username,
-        :Recipient => params[:recipient],
-        :Cc => params[:cc],
-        :Distribution_list => params[:distribution_list],
-        :Subject => params[:subject],
-        :Message_body => params[:message_body],
-        :Attachments => params[:attachment],
-        :Sent_dateTime => params[:sent_dateTime],
-        :Urgent => params[:urgent],
-        :Read => false
+        :sender => username,
+        :recipient => params[:recipient],
+        :cc => params[:cc],
+        :distribution_list => params[:distribution_list],
+        :subject => params[:subject],
+        :message_body => params[:message_body],
+        :attachments => params[:attachment],
+        :sent_date => params[:sent_date],
+        :urgent => params[:urgent],
+        :read => false
       }.to_json,
       :headers => {
         'Content-Type' => 'application/json'
@@ -30,7 +30,7 @@ module ParamsHelper
         :message_body => params[:message_body],
         :attachment => params[:attachment],
         :cc => params[:cc],
-        :sent_dateTime => params[:sent_dateTime],
+        :sent_date => params[:sent_dateTime],
         :draft => params[:draft],
         :urgent => params[:urgent],
         :confirmation => params[:confirmation]
