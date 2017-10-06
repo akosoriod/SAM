@@ -13,9 +13,4 @@ class ReceivedMail < ApplicationRecord
     where(urgent: urgent)
   end
 
-  def self.paginate(first = 0, max = 10)
-    puts "FIRST: #{first}, MAX: #{max}"
-    limit(max).offset(first*max)
-  end
-
 end

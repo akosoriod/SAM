@@ -8,14 +8,20 @@ class ReceivedMailsController < ApplicationController
 
   # GET /received_mails
   def index
-    puts "USUARIO: #{params[:username]}"
+    #puts "USUARIO: #{params[:username]}"
     @rm = ReceivedMail.all
     @rm = @rm.by_sender(params[:sender]) if params.has_key?(:sender)
     @rm = @rm.by_read(params[:read]) if params.has_key?(:read)
     @rm = @rm.by_urgent(params[:urgent]) if params.has_key?(:urgent)
-    page = params.has_key?(:page) ? params[:page] : 0
-    per_page = params.has_key?(:per_page) ? params[:per_page] : 10
-    render json: @rm.paginate(page.to_i , per_page.to_i)
+    if (params.has_key?(:page) && params.has_key?(:per_page))
+      @rm = @rm.paginate(page: params[:page], per_page: params[:per_page]).order('created_at DESC')
+    else
+      @rm = @rm.paginate(page: 1, per_page: 10).order('created_at DESC')
+    end
+    @rm.each do |mail|
+      mail.message_body = mail.message_body[0..9]
+    end
+    render json: @rm.to_json(:only => [ :id, :subject, :sender, :message_body, :attachment])
   end
 
   # GET /received_mails/1
