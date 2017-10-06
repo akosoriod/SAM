@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'sent/:id', to: 'mail#sent_mail'
   get 'draft', to: 'mail#draft_index'
   get 'draft/:id', to: 'mail#draft_show'
-  post 'sent', to: 'mail#sendMail'
+  post 'send', to: 'mail#sendMail'
   put 'senddrafts', to: 'mail#send_draft'
   put 'draft/:id', to: 'mail#modify_draft'
   delete 'sent/:id', to: 'mail#destroy_sent'

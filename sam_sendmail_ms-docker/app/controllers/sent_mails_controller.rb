@@ -80,7 +80,7 @@ end
       subject: params[:subject],
       message_body: params[:message_body],
       attachment: params[:attachment],
-      sent_dateTime: params[:sent_dateTime],
+      sent_date: params[:sent_date],
       urgent: params[:urgent],
       draft: params[:draft],
       confirmation: params[:confirmation])
@@ -117,6 +117,6 @@ end
 
   # Only allow a trusted parameter "white list" through.
   def sent_mail_params
-    params.require(:sent_mail).permit(:sender, :recipient, :cc, :distribution_list, :subject, :message_body, :attachment, :sent_dateTime, :draft, :urgent, :confirmation)
+    params.require(:sent_mail).permit(:sender, :recipient, :cc, :distribution_list, :subject, :message_body, :attachment, :sent_date, :draft, :urgent, :confirmation)
   end
 end

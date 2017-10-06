@@ -70,7 +70,7 @@ class MailController < ApplicationController
           subject: params[:subject],
           message_body: params[:message_body],
           attachment: params[:attachment],
-          sent_dateTime: params[:sent_dateTime],
+          sent_date: params[:sent_date],
           urgent: params[:urgent],
           draft: params[:draft],
           confirmation: params[:confirmation]
