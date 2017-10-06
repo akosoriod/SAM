@@ -194,12 +194,12 @@ class MailController < ApplicationController
     query = params.except(:action, :controller)
     query.permit!
     #puts "THIS IS: " + query.to_query
-    @result = HTTParty.get(ms_ip("in")+@username+"/inbox?"+query.to_query)
+    @result = HTTParty.get(ms_ip("in")+"/"+@username+"/inbox?"+query.to_query)
     render json: @result.body
   end
 
   def delReceivedMail
-    @result = HTTParty.delete(ms_ip("in")+"received_mails"+params[:id].to_s)
+    @result = HTTParty.delete(ms_ip("in")+"/received_mails/"+params[:id].to_s)
     if @result.code == 200
       render status: 200, json: {body:{message: "Mail deleted"}}.to_json
     else
@@ -208,7 +208,7 @@ class MailController < ApplicationController
   end
 
   def received_mail
-    @result = HTTParty.get(ms_ip("in")+"/received_mails"+params[:id].to_s)
+    @result = HTTParty.get(ms_ip("in")+"/received_mails/"+params[:id].to_s)
     if @result.code == 200
       render status: 200, json: @result.body
     else
