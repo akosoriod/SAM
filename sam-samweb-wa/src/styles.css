@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@font-face {
+    font-family: 'SourceSansPro';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SourceSansPro'), local('SourceSansPro'), url(assets/Source_Sans_Pro/SourceSansPro-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'SourceSansPro-Italic';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SourceSansPro-Italic'), local('SourceSansPro-Italic'), url(assets/Source_Sans_Pro/SourceSansPro-Italic.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'SourceSansPro-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SourceSansPro-Bold'), local('SourceSansPro-Bold'), url(assets/Source_Sans_Pro/SourceSansPro-SemiBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'SourceSansPro-SemiBoldItalic';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SourceSansPro-SemiBoldItalic'), local('SourceSansPro-SemiBoldItalic'), url(assets/Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'SourceSansPro-BlackItalic';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SourceSansPro-BlackItalic'), local('SourceSansPro-BlackItalic'), url(assets/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf) format('truetype');
+}
+body {
+    background: url('/assets/background.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-family: 'SourceSansPro', sans-serif;
+}
+nav {
+    background-color: #0095a8 !important;
+    border: none;
+    height: 90px;
+    color: white;
+}
+#navlogin{
+  color: white;
+  text-align: center;
+  font-family: 'SourceSansPro';
+  font-size: 17pt;
+}
+#navlogin:hover{
+  color: #25c6d8;
+}
+#tittle{
+  color: white;
+  text-align: center;
+  font-family: 'SourceSansPro-BlackItalic';
+  font-size: 36pt;
+  position: fixed;
+  top: 10px;
+  left: 110px;
+}
+#slogan{
+  color: white;
+  text-align: center;
+  font-family: 'SourceSansPro-SemiBoldItalic';
+  font-size: 43pt;
+   margin-top: 59px;
+}
+#buttons{
+  text-align: center;
+  margin-top: 35px;
+}
+#button-register{
+    height: 50px;
+    width: 200px;
+    font-size: 20pt;
+    background-color: #25c6d8;
+    color: white;
+    font-family: "SourceSansPro";
+    margin-right:30px;
+}
+#button-login{
+    height: 50px;
+    width: 200px;
+    font-size: 20pt;
+    background-color: white;
+    color: #25c6d8;
+    font-family: "SourceSansPro";
+}
