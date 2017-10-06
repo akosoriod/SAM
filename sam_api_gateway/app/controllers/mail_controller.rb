@@ -189,21 +189,21 @@ class MailController < ApplicationController
 
 ##############################################################################
 
+  def inbox
+    params.permit!
+    query = params.except(:action, :controller)
+    query.permit!
+    #puts "THIS IS: " + query.to_query
+    @result = HTTParty.get(ms_ip("in")+@username+"/inbox?"+query.to_query)
+    render json: @result.body
+  end
+
   def delReceivedMail
     @result = HTTParty.delete(ms_ip("in")+"received_mails"+params[:id].to_s)
     if @result.code == 200
       render status: 200, json: {body:{message: "Mail deleted"}}.to_json
     else
       render status: 404, json: {body:{message: "Mail couldn't be deleted"}}.to_json
-    end
-  end
-
-  def received_mails
-    @result = HTTParty.get(ms_ip("in")+"/inbox/user/"+@username)
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Reeceived Mails not found"}}.to_json
     end
   end
 
@@ -214,25 +214,6 @@ class MailController < ApplicationController
     else
       render status: 404, json: {body:{message: "Mail not found"}}.to_json
     end
-  end
-
-  def bySender
-    @result = HTTParty.get(ms_ip("in")+"/inbox/#{@username}/sender/"+params[:sender])
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Not mails from "+params[:sender]+" found"}}.to_json
-    end
-  end
-
-  def by_filter
-    params
-      result = HTTParty.get("#{ms_ip("in")}/inbox/#{@username}/#{params[:filter]}")
-      if result.code == 200
-        render status: 200, json: result.body
-      else
-        render status: 404, json: {body:{message: "Not #{params[:filter]} mails found"}}.to_json
-      end
   end
 
 end

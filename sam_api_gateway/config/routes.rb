@@ -35,9 +35,7 @@ Rails.application.routes.draw do
 
   #ReceivedMail
   delete 'ReceivedMails/:id', to: 'mail#delReceivedMail'
-  get 'ReceivedMails', to: 'mail#received_mails'
-  get 'ReceivedMails/:id', to: 'mail#received_mail'
-  get 'inbox/sender/:sender', to: 'mail#bySender'
-  get 'inbox/:filter', to: 'mail#by_filter'
+  get 'inbox', to: 'mail#inbox'
+  get 'inbox/:id', to: 'mail#received_mail'
 
 end
