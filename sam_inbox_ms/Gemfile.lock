@@ -56,7 +56,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.8.6)
     libv8 (3.16.14.19)
-    libv8 (3.16.14.19-x86_64-linux)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -130,6 +129,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.6)
 
 PLATFORMS
   ruby
@@ -147,6 +147,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   therubyracer
   tzinfo-data
+  will_paginate (~> 3.1.0)
 
 BUNDLED WITH
    1.15.4

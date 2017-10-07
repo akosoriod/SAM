@@ -45,3 +45,4 @@ gem 'execjs'
 
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
+gem 'will_paginate', '~> 3.1.0'
