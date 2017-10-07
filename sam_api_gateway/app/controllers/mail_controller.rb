@@ -114,8 +114,8 @@ class MailController < ApplicationController
         if params[:urgent]
           drafts = HTTParty.get(ms_ip("sm")+"/draft/",query:{sender:@username,urgent:params[:urgent]})
         else
-         drafts = HTTParty.get(ms_ip("sm")+"/draft/",query:{sender:@username})
-       end
+          drafts = HTTParty.get(ms_ip("sm")+"/draft/",query:{sender:@username})
+        end
         if drafts.code == 200
           render status: 200, json: drafts.body
         else
@@ -134,8 +134,6 @@ class MailController < ApplicationController
 
       # DELETE
       def destroy_sent
-
-
         @resp = HTTParty.delete(ms_ip("sm")+"/sent/"+params[:id].to_s,query:{sender:@username})
         if @resp.code == 200
           render status: 200, json: {body:{message: "Sent mail deleted"}}.to_json
@@ -146,7 +144,6 @@ class MailController < ApplicationController
 
       #DELETE
       def destroy_draft
-
         @resp = HTTParty.delete(ms_ip("sm")+"/draft/"+params[:id].to_s,query:{sender:@username})
         if @resp.code == 200
           render status: 200, json: {body:{message: "Draft deleted"}}.to_json
@@ -159,50 +156,41 @@ class MailController < ApplicationController
         unless params[:urgent]
           return HTTParty.get(ms_ip("sm")+"/sent",query:{sender:@username})
         end
-         return HTTParty.get(ms_ip("sm")+"/sent",query:{sender:@username,urgent:params[:urgent]})
-
+        return HTTParty.get(ms_ip("sm")+"/sent",query:{sender:@username,urgent:params[:urgent]})
       end
 
-  def inbox
-    params.permit!
-    query = params.except(:action, :controller)
-    query.permit!
-    #puts "THIS IS: " + query.to_query
-    @result = HTTParty.get(ms_ip("in")+"/"+@username+"/inbox?"+query.to_query)
-    render json: @result.body
-  end
-
-  def delReceivedMail
-    @result = HTTParty.delete(ms_ip("in")+"/received_mails/"+params[:id].to_s)
-    if @result.code == 200
-      render status: 200, json: {body:{message: "Mail deleted"}}.to_json
-    else
-      render status: 404, json: {body:{message: "Mail couldn't be deleted"}}.to_json
-    end
-  end
       def checkSentMail(id)
         results = HTTParty.get(ms_ip("sm")+"/sent/"+id.to_s,query:{sender:@username})
         return results
       end
 
-  def received_mail
-    @result = HTTParty.get(ms_ip("in")+"/received_mails/"+params[:id].to_s)
-    if @result.code == 200
-      render status: 200, json: @result.body
-    else
-      render status: 404, json: {body:{message: "Mail not found"}}.to_json
-    end
-  end
+      #inbox methods
+      def inbox
+        params.permit!
+        query = params.except(:action, :controller)
+        query.permit!
+        #puts "THIS IS: " + query.to_query
+        @result = HTTParty.get(ms_ip("in")+"/"+@username+"/inbox?"+query.to_query)
+        render json: @result.body
+      end
 
-end
-
-      def by_filter
-        params
-        result = HTTParty.get("#{ms_ip("in")}/inbox/#{@username}/#{params[:filter]}")
-        if result.code == 200
-          render status: 200, json: result.body
+      #GET by id
+      def received_mail
+        @result = HTTParty.get(ms_ip("in")+"/received_mails/"+params[:id].to_s)
+        if @result.code == 200
+          render status: 200, json: @result.body
         else
-          render status: 404, json: {body:{message: "Not #{params[:filter]} mails found"}}.to_json
+          render status: 404, json: {body:{message: "Mail not found"}}.to_json
+        end
+      end
+
+      #DELETE
+      def delReceivedMail
+        @result = HTTParty.delete(ms_ip("in")+"/received_mails/"+params[:id].to_s)
+        if @result.code == 200
+          render status: 200, json: {body:{message: "Mail deleted"}}.to_json
+        else
+          render status: 404, json: {body:{message: "Mail couldn't be deleted"}}.to_json
         end
       end
 
